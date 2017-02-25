@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C193C17A1E61BA1F00248F71 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = C193C16B1E61BA1F00248F71 /* LICENSE.md */; };
+		C193C17B1E61BA1F00248F71 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C193C16C1E61BA1F00248F71 /* Makefile */; };
+		C193C17C1E61BA1F00248F71 /* memorydebug.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C16D1E61BA1F00248F71 /* memorydebug.c */; };
+		C193C17D1E61BA1F00248F71 /* modules in Resources */ = {isa = PBXBuildFile; fileRef = C193C16F1E61BA1F00248F71 /* modules */; };
+		C193C17E1E61BA1F00248F71 /* pytorch.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1701E61BA1F00248F71 /* pytorch.c */; };
+		C193C17F1E61BA1F00248F71 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C193C1711E61BA1F00248F71 /* README.md */; };
+		C193C1801E61BA1F00248F71 /* thapi.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1741E61BA1F00248F71 /* thapi.c */; };
+		C193C1811E61BA1F00248F71 /* thbasic.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1751E61BA1F00248F71 /* thbasic.c */; settings = {COMPILER_FLAGS = "-DUSEBLAS -DACCELERATE"; }; };
+		C193C1821E61BA1F00248F71 /* thexport.py in Resources */ = {isa = PBXBuildFile; fileRef = C193C1761E61BA1F00248F71 /* thexport.py */; };
+		C193C1831E61BA1F00248F71 /* thload.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1771E61BA1F00248F71 /* thload.c */; };
+		C1FB00001E57C668002EF598 /* AIperLife_iOsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */; };
+		C1FB000B1E57C668002EF598 /* AIperLife_iOsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */; };
+		C1FBFFEB1E57C668002EF598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
+		C1FBFFED1E57C668002EF598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
+		C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFEE1E57C668002EF598 /* Main.storyboard */; };
+		C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1FB00071E57C668002EF598 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1FBFFDF1E57C668002EF598 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1FBFFE61E57C668002EF598;
+			remoteInfo = "AIperLife-iOs";
+		};
+		C1FBFFFC1E57C668002EF598 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C1FBFFDF1E57C668002EF598 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1FBFFE61E57C668002EF598;
+			remoteInfo = "AIperLife-iOs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C193C16B1E61BA1F00248F71 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = thnets/LICENSE.md; sourceTree = SOURCE_ROOT; };
+		C193C16C1E61BA1F00248F71 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = thnets/Makefile; sourceTree = SOURCE_ROOT; };
+		C193C16D1E61BA1F00248F71 /* memorydebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = memorydebug.c; path = thnets/memorydebug.c; sourceTree = SOURCE_ROOT; };
+		C193C16E1E61BA1F00248F71 /* memorydebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = memorydebug.h; path = thnets/memorydebug.h; sourceTree = SOURCE_ROOT; };
+		C193C16F1E61BA1F00248F71 /* modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = modules; path = thnets/modules; sourceTree = SOURCE_ROOT; };
+		C193C1701E61BA1F00248F71 /* pytorch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pytorch.c; path = thnets/pytorch.c; sourceTree = SOURCE_ROOT; };
+		C193C1711E61BA1F00248F71 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = thnets/README.md; sourceTree = SOURCE_ROOT; };
+		C193C1721E61BA1F00248F71 /* sgemm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sgemm.h; path = thnets/sgemm.h; sourceTree = SOURCE_ROOT; };
+		C193C1731E61BA1F00248F71 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_image.h; path = thnets/stb_image.h; sourceTree = SOURCE_ROOT; };
+		C193C1741E61BA1F00248F71 /* thapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thapi.c; path = thnets/thapi.c; sourceTree = SOURCE_ROOT; };
+		C193C1751E61BA1F00248F71 /* thbasic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thbasic.c; path = thnets/thbasic.c; sourceTree = SOURCE_ROOT; };
+		C193C1761E61BA1F00248F71 /* thexport.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = thexport.py; path = thnets/thexport.py; sourceTree = SOURCE_ROOT; };
+		C193C1771E61BA1F00248F71 /* thload.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thload.c; path = thnets/thload.c; sourceTree = SOURCE_ROOT; };
+		C193C1781E61BA1F00248F71 /* thnets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thnets.h; path = thnets/thnets.h; sourceTree = SOURCE_ROOT; };
+		C193C1791E61BA1F00248F71 /* thvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = SOURCE_ROOT; };
+		C1FB00011E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AIperLife-iOsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIperLife_iOsUITests.swift; sourceTree = "<group>"; };
+		C1FB000C1E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AIperLife-iOs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C1FBFFEC1E57C668002EF598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1FBFFEF1E57C668002EF598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1FBFFF41E57C668002EF598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C1FBFFF61E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AIperLife-iOsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIperLife_iOsTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1FB00031E57C668002EF598 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFE41E57C668002EF598 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFF81E57C668002EF598 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C193C1411E61B26100248F71 /* thnets */ = {
+			isa = PBXGroup;
+			children = (
+				C193C16B1E61BA1F00248F71 /* LICENSE.md */,
+				C193C16C1E61BA1F00248F71 /* Makefile */,
+				C193C16D1E61BA1F00248F71 /* memorydebug.c */,
+				C193C16E1E61BA1F00248F71 /* memorydebug.h */,
+				C193C16F1E61BA1F00248F71 /* modules */,
+				C193C1701E61BA1F00248F71 /* pytorch.c */,
+				C193C1711E61BA1F00248F71 /* README.md */,
+				C193C1721E61BA1F00248F71 /* sgemm.h */,
+				C193C1731E61BA1F00248F71 /* stb_image.h */,
+				C193C1741E61BA1F00248F71 /* thapi.c */,
+				C193C1751E61BA1F00248F71 /* thbasic.c */,
+				C193C1761E61BA1F00248F71 /* thexport.py */,
+				C193C1771E61BA1F00248F71 /* thload.c */,
+				C193C1781E61BA1F00248F71 /* thnets.h */,
+				C193C1791E61BA1F00248F71 /* thvector.h */,
+			);
+			name = thnets;
+			sourceTree = "<group>";
+		};
+		C1FB00091E57C668002EF598 /* AIperLife-iOsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */,
+				C1FB000C1E57C668002EF598 /* Info.plist */,
+			);
+			path = "AIperLife-iOsUITests";
+			sourceTree = "<group>";
+		};
+		C1FBFFDE1E57C668002EF598 = {
+			isa = PBXGroup;
+			children = (
+				C1FBFFE91E57C668002EF598 /* AIperLife-iOs */,
+				C1FBFFFE1E57C668002EF598 /* AIperLife-iOsTests */,
+				C1FB00091E57C668002EF598 /* AIperLife-iOsUITests */,
+				C1FBFFE81E57C668002EF598 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1FBFFE81E57C668002EF598 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */,
+				C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */,
+				C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1FBFFE91E57C668002EF598 /* AIperLife-iOs */ = {
+			isa = PBXGroup;
+			children = (
+				C193C1411E61B26100248F71 /* thnets */,
+				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
+				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
+				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
+				C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */,
+				C1FBFFF61E57C668002EF598 /* Info.plist */,
+			);
+			path = "AIperLife-iOs";
+			sourceTree = "<group>";
+		};
+		C1FBFFFE1E57C668002EF598 /* AIperLife-iOsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */,
+				C1FB00011E57C668002EF598 /* Info.plist */,
+			);
+			path = "AIperLife-iOsTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1FB00051E57C668002EF598 /* AIperLife-iOsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1FB00151E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsUITests" */;
+			buildPhases = (
+				C1FB00021E57C668002EF598 /* Sources */,
+				C1FB00031E57C668002EF598 /* Frameworks */,
+				C1FB00041E57C668002EF598 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1FB00081E57C668002EF598 /* PBXTargetDependency */,
+			);
+			name = "AIperLife-iOsUITests";
+			productName = "AIperLife-iOsUITests";
+			productReference = C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		C1FBFFE61E57C668002EF598 /* AIperLife-iOs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1FB000F1E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOs" */;
+			buildPhases = (
+				C1FBFFE31E57C668002EF598 /* Sources */,
+				C1FBFFE41E57C668002EF598 /* Frameworks */,
+				C1FBFFE51E57C668002EF598 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AIperLife-iOs";
+			productName = "AIperLife-iOs";
+			productReference = C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C1FBFFFA1E57C668002EF598 /* AIperLife-iOsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1FB00121E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsTests" */;
+			buildPhases = (
+				C1FBFFF71E57C668002EF598 /* Sources */,
+				C1FBFFF81E57C668002EF598 /* Frameworks */,
+				C1FBFFF91E57C668002EF598 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1FBFFFD1E57C668002EF598 /* PBXTargetDependency */,
+			);
+			name = "AIperLife-iOsTests";
+			productName = "AIperLife-iOsTests";
+			productReference = C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1FBFFDF1E57C668002EF598 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Eugenio Culurciello";
+				TargetAttributes = {
+					C1FB00051E57C668002EF598 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C1FBFFE61E57C668002EF598;
+					};
+					C1FBFFE61E57C668002EF598 = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					C1FBFFFA1E57C668002EF598 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C1FBFFE61E57C668002EF598;
+					};
+				};
+			};
+			buildConfigurationList = C1FBFFE21E57C668002EF598 /* Build configuration list for PBXProject "AIperLife-iOs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1FBFFDE1E57C668002EF598;
+			productRefGroup = C1FBFFE81E57C668002EF598 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1FBFFE61E57C668002EF598 /* AIperLife-iOs */,
+				C1FBFFFA1E57C668002EF598 /* AIperLife-iOsTests */,
+				C1FB00051E57C668002EF598 /* AIperLife-iOsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1FB00041E57C668002EF598 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFE51E57C668002EF598 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C193C1821E61BA1F00248F71 /* thexport.py in Resources */,
+				C193C17D1E61BA1F00248F71 /* modules in Resources */,
+				C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */,
+				C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFF91E57C668002EF598 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1FB00021E57C668002EF598 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1FB000B1E57C668002EF598 /* AIperLife_iOsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFE31E57C668002EF598 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1FBFFED1E57C668002EF598 /* ViewController.swift in Sources */,
+				C193C17E1E61BA1F00248F71 /* pytorch.c in Sources */,
+				C193C17A1E61BA1F00248F71 /* LICENSE.md in Sources */,
+				C193C17F1E61BA1F00248F71 /* README.md in Sources */,
+				C193C17C1E61BA1F00248F71 /* memorydebug.c in Sources */,
+				C193C17B1E61BA1F00248F71 /* Makefile in Sources */,
+				C193C1801E61BA1F00248F71 /* thapi.c in Sources */,
+				C193C1831E61BA1F00248F71 /* thload.c in Sources */,
+				C1FBFFEB1E57C668002EF598 /* AppDelegate.swift in Sources */,
+				C193C1811E61BA1F00248F71 /* thbasic.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1FBFFF71E57C668002EF598 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1FB00001E57C668002EF598 /* AIperLife_iOsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1FB00081E57C668002EF598 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1FBFFE61E57C668002EF598 /* AIperLife-iOs */;
+			targetProxy = C1FB00071E57C668002EF598 /* PBXContainerItemProxy */;
+		};
+		C1FBFFFD1E57C668002EF598 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C1FBFFE61E57C668002EF598 /* AIperLife-iOs */;
+			targetProxy = C1FBFFFC1E57C668002EF598 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C1FBFFEE1E57C668002EF598 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1FBFFEF1E57C668002EF598 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1FBFFF41E57C668002EF598 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1FB000D1E57C668002EF598 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1FB000E1E57C668002EF598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1FB00101E57C668002EF598 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIperLife-iOs/AIperLife-iOs-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C1FB00111E57C668002EF598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AIperLife-iOs/AIperLife-iOs-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C1FB00131E57C668002EF598 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "AIperLife-iOsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIperLife-iOs.app/AIperLife-iOs";
+			};
+			name = Debug;
+		};
+		C1FB00141E57C668002EF598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "AIperLife-iOsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIperLife-iOs.app/AIperLife-iOs";
+			};
+			name = Release;
+		};
+		C1FB00161E57C668002EF598 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "AIperLife-iOsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "AIperLife-iOs";
+			};
+			name = Debug;
+		};
+		C1FB00171E57C668002EF598 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "AIperLife-iOsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "AIperLife-iOs";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1FB000F1E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1FB00101E57C668002EF598 /* Debug */,
+				C1FB00111E57C668002EF598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1FB00121E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1FB00131E57C668002EF598 /* Debug */,
+				C1FB00141E57C668002EF598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1FB00151E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1FB00161E57C668002EF598 /* Debug */,
+				C1FB00171E57C668002EF598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1FBFFE21E57C668002EF598 /* Build configuration list for PBXProject "AIperLife-iOs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1FB000D1E57C668002EF598 /* Debug */,
+				C1FB000E1E57C668002EF598 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1FBFFDF1E57C668002EF598 /* Project object */;
+}
