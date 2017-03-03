@@ -7,20 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C193C17A1E61BA1F00248F71 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = C193C16B1E61BA1F00248F71 /* LICENSE.md */; };
-		C193C17B1E61BA1F00248F71 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C193C16C1E61BA1F00248F71 /* Makefile */; };
-		C193C17C1E61BA1F00248F71 /* memorydebug.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C16D1E61BA1F00248F71 /* memorydebug.c */; };
-		C193C17D1E61BA1F00248F71 /* modules in Resources */ = {isa = PBXBuildFile; fileRef = C193C16F1E61BA1F00248F71 /* modules */; };
-		C193C17E1E61BA1F00248F71 /* pytorch.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1701E61BA1F00248F71 /* pytorch.c */; };
-		C193C17F1E61BA1F00248F71 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C193C1711E61BA1F00248F71 /* README.md */; };
-		C193C1801E61BA1F00248F71 /* thapi.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1741E61BA1F00248F71 /* thapi.c */; };
-		C193C1811E61BA1F00248F71 /* thbasic.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1751E61BA1F00248F71 /* thbasic.c */; settings = {COMPILER_FLAGS = "-DUSEBLAS -DACCELERATE"; }; };
-		C193C1821E61BA1F00248F71 /* thexport.py in Resources */ = {isa = PBXBuildFile; fileRef = C193C1761E61BA1F00248F71 /* thexport.py */; };
-		C193C1831E61BA1F00248F71 /* thload.c in Sources */ = {isa = PBXBuildFile; fileRef = C193C1771E61BA1F00248F71 /* thload.c */; };
-		C1FB00001E57C668002EF598 /* AIperLife_iOsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */; };
-		C1FB000B1E57C668002EF598 /* AIperLife_iOsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */; };
-		C1FBFFEB1E57C668002EF598 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
-		C1FBFFED1E57C668002EF598 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
+		C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1159EB21E69E4D200ABF833 /* Accelerate.framework */; };
+		C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
+		C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
+		C1159EBA1E69E8DE00ABF833 /* neural-nets in Resources */ = {isa = PBXBuildFile; fileRef = C1159EB91E69E8DE00ABF833 /* neural-nets */; };
+		C1159EBC1E69E99E00ABF833 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1159EBB1E69E99E00ABF833 /* Images.xcassets */; };
+		C12BF18E1E69E46E00D24035 /* CAddTable.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1781E69E46E00D24035 /* CAddTable.c */; };
+		C12BF18F1E69E46E00D24035 /* Concat.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17A1E69E46E00D24035 /* Concat.c */; };
+		C12BF1901E69E46E00D24035 /* ConcatTable.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17B1E69E46E00D24035 /* ConcatTable.c */; };
+		C12BF1911E69E46E00D24035 /* Dropout.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17C1E69E46E00D24035 /* Dropout.c */; };
+		C12BF1921E69E46E00D24035 /* JoinTable.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17D1E69E46E00D24035 /* JoinTable.c */; };
+		C12BF1931E69E46E00D24035 /* Linear.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17E1E69E46E00D24035 /* Linear.c */; };
+		C12BF1941E69E46E00D24035 /* Normalize.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17F1E69E46E00D24035 /* Normalize.c */; };
+		C12BF1951E69E46E00D24035 /* PReLU.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1801E69E46E00D24035 /* PReLU.c */; };
+		C12BF1961E69E46E00D24035 /* Reshape.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1811E69E46E00D24035 /* Reshape.c */; };
+		C12BF1971E69E46E00D24035 /* Sequential.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1821E69E46E00D24035 /* Sequential.c */; };
+		C12BF1981E69E46E00D24035 /* SoftMax.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1831E69E46E00D24035 /* SoftMax.c */; };
+		C12BF1991E69E46E00D24035 /* SpatialAveragePooling.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1841E69E46E00D24035 /* SpatialAveragePooling.c */; };
+		C12BF19A1E69E46E00D24035 /* SpatialBatchNormalization.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1851E69E46E00D24035 /* SpatialBatchNormalization.c */; };
+		C12BF19B1E69E46E00D24035 /* SpatialConvolution.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1861E69E46E00D24035 /* SpatialConvolution.c */; };
+		C12BF19C1E69E46E00D24035 /* SpatialConvolutionMM.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1871E69E46E00D24035 /* SpatialConvolutionMM.c */; settings = {COMPILER_FLAGS = "-DUSEBLAS -DACCELERATE"; }; };
+		C12BF19D1E69E46E00D24035 /* SpatialFullConvolution.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1881E69E46E00D24035 /* SpatialFullConvolution.c */; };
+		C12BF19E1E69E46E00D24035 /* SpatialMaxPooling.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1891E69E46E00D24035 /* SpatialMaxPooling.c */; };
+		C12BF19F1E69E46E00D24035 /* SpatialMaxUnpooling.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF18A1E69E46E00D24035 /* SpatialMaxUnpooling.c */; };
+		C12BF1A01E69E46E00D24035 /* SpatialZeroPadding.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF18B1E69E46E00D24035 /* SpatialZeroPadding.c */; };
+		C12BF1A11E69E46E00D24035 /* Threshold.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF18C1E69E46E00D24035 /* Threshold.c */; };
+		C12BF1A21E69E46E00D24035 /* View.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF18D1E69E46E00D24035 /* View.c */; };
+		C12BF1AA1E69E48500D24035 /* memorydebug.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A31E69E48500D24035 /* memorydebug.c */; };
+		C12BF1AB1E69E48500D24035 /* pytorch.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A41E69E48500D24035 /* pytorch.c */; };
+		C12BF1AC1E69E48500D24035 /* thapi.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A51E69E48500D24035 /* thapi.c */; settings = {COMPILER_FLAGS = "-DUSEBLAS -DACCELERATE"; }; };
+		C12BF1AD1E69E48500D24035 /* thbasic.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A61E69E48500D24035 /* thbasic.c */; settings = {COMPILER_FLAGS = "-DUSEBLAS -DACCELERATE"; }; };
+		C12BF1AE1E69E48500D24035 /* thload.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A71E69E48500D24035 /* thload.c */; };
 		C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFEE1E57C668002EF598 /* Main.storyboard */; };
 		C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -43,33 +60,45 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C193C16B1E61BA1F00248F71 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = thnets/LICENSE.md; sourceTree = SOURCE_ROOT; };
-		C193C16C1E61BA1F00248F71 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = thnets/Makefile; sourceTree = SOURCE_ROOT; };
-		C193C16D1E61BA1F00248F71 /* memorydebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = memorydebug.c; path = thnets/memorydebug.c; sourceTree = SOURCE_ROOT; };
-		C193C16E1E61BA1F00248F71 /* memorydebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = memorydebug.h; path = thnets/memorydebug.h; sourceTree = SOURCE_ROOT; };
-		C193C16F1E61BA1F00248F71 /* modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = modules; path = thnets/modules; sourceTree = SOURCE_ROOT; };
-		C193C1701E61BA1F00248F71 /* pytorch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pytorch.c; path = thnets/pytorch.c; sourceTree = SOURCE_ROOT; };
-		C193C1711E61BA1F00248F71 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = thnets/README.md; sourceTree = SOURCE_ROOT; };
-		C193C1721E61BA1F00248F71 /* sgemm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sgemm.h; path = thnets/sgemm.h; sourceTree = SOURCE_ROOT; };
-		C193C1731E61BA1F00248F71 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_image.h; path = thnets/stb_image.h; sourceTree = SOURCE_ROOT; };
-		C193C1741E61BA1F00248F71 /* thapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thapi.c; path = thnets/thapi.c; sourceTree = SOURCE_ROOT; };
-		C193C1751E61BA1F00248F71 /* thbasic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thbasic.c; path = thnets/thbasic.c; sourceTree = SOURCE_ROOT; };
-		C193C1761E61BA1F00248F71 /* thexport.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = thexport.py; path = thnets/thexport.py; sourceTree = SOURCE_ROOT; };
-		C193C1771E61BA1F00248F71 /* thload.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thload.c; path = thnets/thload.c; sourceTree = SOURCE_ROOT; };
-		C193C1781E61BA1F00248F71 /* thnets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thnets.h; path = thnets/thnets.h; sourceTree = SOURCE_ROOT; };
-		C193C1791E61BA1F00248F71 /* thvector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = SOURCE_ROOT; };
-		C1FB00011E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AIperLife-iOsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIperLife_iOsUITests.swift; sourceTree = "<group>"; };
-		C1FB000C1E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AIperLife-iOs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
+		C1159EB71E69E64C00ABF833 /* AIperLife-iOsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AIperLife-iOsTests.xctest"; path = "/Users/eugenioculurciello/FWDNXT/git/AIPerLife-iOs/build/Debug-iphoneos/AIperLife-iOsTests.xctest"; sourceTree = "<absolute>"; };
+		C1159EB81E69E64C00ABF833 /* AIperLife-iOsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AIperLife-iOsUITests.xctest"; path = "/Users/eugenioculurciello/FWDNXT/git/AIPerLife-iOs/build/Debug-iphoneos/AIperLife-iOsUITests.xctest"; sourceTree = "<absolute>"; };
+		C1159EB91E69E8DE00ABF833 /* neural-nets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "neural-nets"; path = "../../../Code/github/apps-iOs/thnets-camera/neural-nets"; sourceTree = "<group>"; };
+		C1159EBB1E69E99E00ABF833 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AIperLife-iOs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C12BF1781E69E46E00D24035 /* CAddTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CAddTable.c; sourceTree = "<group>"; };
+		C12BF17A1E69E46E00D24035 /* Concat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Concat.c; sourceTree = "<group>"; };
+		C12BF17B1E69E46E00D24035 /* ConcatTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ConcatTable.c; sourceTree = "<group>"; };
+		C12BF17C1E69E46E00D24035 /* Dropout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Dropout.c; sourceTree = "<group>"; };
+		C12BF17D1E69E46E00D24035 /* JoinTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JoinTable.c; sourceTree = "<group>"; };
+		C12BF17E1E69E46E00D24035 /* Linear.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Linear.c; sourceTree = "<group>"; };
+		C12BF17F1E69E46E00D24035 /* Normalize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Normalize.c; sourceTree = "<group>"; };
+		C12BF1801E69E46E00D24035 /* PReLU.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PReLU.c; sourceTree = "<group>"; };
+		C12BF1811E69E46E00D24035 /* Reshape.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Reshape.c; sourceTree = "<group>"; };
+		C12BF1821E69E46E00D24035 /* Sequential.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Sequential.c; sourceTree = "<group>"; };
+		C12BF1831E69E46E00D24035 /* SoftMax.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SoftMax.c; sourceTree = "<group>"; };
+		C12BF1841E69E46E00D24035 /* SpatialAveragePooling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialAveragePooling.c; sourceTree = "<group>"; };
+		C12BF1851E69E46E00D24035 /* SpatialBatchNormalization.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialBatchNormalization.c; sourceTree = "<group>"; };
+		C12BF1861E69E46E00D24035 /* SpatialConvolution.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialConvolution.c; sourceTree = "<group>"; };
+		C12BF1871E69E46E00D24035 /* SpatialConvolutionMM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialConvolutionMM.c; sourceTree = "<group>"; };
+		C12BF1881E69E46E00D24035 /* SpatialFullConvolution.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialFullConvolution.c; sourceTree = "<group>"; };
+		C12BF1891E69E46E00D24035 /* SpatialMaxPooling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialMaxPooling.c; sourceTree = "<group>"; };
+		C12BF18A1E69E46E00D24035 /* SpatialMaxUnpooling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialMaxUnpooling.c; sourceTree = "<group>"; };
+		C12BF18B1E69E46E00D24035 /* SpatialZeroPadding.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SpatialZeroPadding.c; sourceTree = "<group>"; };
+		C12BF18C1E69E46E00D24035 /* Threshold.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Threshold.c; sourceTree = "<group>"; };
+		C12BF18D1E69E46E00D24035 /* View.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = View.c; sourceTree = "<group>"; };
+		C12BF1A31E69E48500D24035 /* memorydebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = memorydebug.c; path = thnets/memorydebug.c; sourceTree = "<group>"; };
+		C12BF1A41E69E48500D24035 /* pytorch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pytorch.c; path = thnets/pytorch.c; sourceTree = "<group>"; };
+		C12BF1A51E69E48500D24035 /* thapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thapi.c; path = thnets/thapi.c; sourceTree = "<group>"; };
+		C12BF1A61E69E48500D24035 /* thbasic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thbasic.c; path = thnets/thbasic.c; sourceTree = "<group>"; };
+		C12BF1A71E69E48500D24035 /* thload.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = thload.c; path = thnets/thload.c; sourceTree = "<group>"; };
+		C12BF1A91E69E48500D24035 /* thnets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thnets.h; path = thnets/thnets.h; sourceTree = "<group>"; };
 		C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1FBFFEC1E57C668002EF598 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1FBFFEF1E57C668002EF598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1FBFFF41E57C668002EF598 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1FBFFF61E57C668002EF598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AIperLife-iOsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIperLife_iOsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,77 +127,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C193C1411E61B26100248F71 /* thnets */ = {
+		C1159EB11E69E4D100ABF833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C193C16B1E61BA1F00248F71 /* LICENSE.md */,
-				C193C16C1E61BA1F00248F71 /* Makefile */,
-				C193C16D1E61BA1F00248F71 /* memorydebug.c */,
-				C193C16E1E61BA1F00248F71 /* memorydebug.h */,
-				C193C16F1E61BA1F00248F71 /* modules */,
-				C193C1701E61BA1F00248F71 /* pytorch.c */,
-				C193C1711E61BA1F00248F71 /* README.md */,
-				C193C1721E61BA1F00248F71 /* sgemm.h */,
-				C193C1731E61BA1F00248F71 /* stb_image.h */,
-				C193C1741E61BA1F00248F71 /* thapi.c */,
-				C193C1751E61BA1F00248F71 /* thbasic.c */,
-				C193C1761E61BA1F00248F71 /* thexport.py */,
-				C193C1771E61BA1F00248F71 /* thload.c */,
-				C193C1781E61BA1F00248F71 /* thnets.h */,
-				C193C1791E61BA1F00248F71 /* thvector.h */,
+				C1159EB21E69E4D200ABF833 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C12BF1761E69E45D00D24035 /* thnets */ = {
+			isa = PBXGroup;
+			children = (
+				C1159EB41E69E57A00ABF833 /* thvector.h */,
+				C12BF1A31E69E48500D24035 /* memorydebug.c */,
+				C12BF1A41E69E48500D24035 /* pytorch.c */,
+				C12BF1A51E69E48500D24035 /* thapi.c */,
+				C12BF1A61E69E48500D24035 /* thbasic.c */,
+				C12BF1A71E69E48500D24035 /* thload.c */,
+				C12BF1A91E69E48500D24035 /* thnets.h */,
+				C12BF1771E69E46E00D24035 /* modules */,
 			);
 			name = thnets;
 			sourceTree = "<group>";
 		};
-		C1FB00091E57C668002EF598 /* AIperLife-iOsUITests */ = {
+		C12BF1771E69E46E00D24035 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-				C1FB000A1E57C668002EF598 /* AIperLife_iOsUITests.swift */,
-				C1FB000C1E57C668002EF598 /* Info.plist */,
+				C12BF1781E69E46E00D24035 /* CAddTable.c */,
+				C12BF17A1E69E46E00D24035 /* Concat.c */,
+				C12BF17B1E69E46E00D24035 /* ConcatTable.c */,
+				C12BF17C1E69E46E00D24035 /* Dropout.c */,
+				C12BF17D1E69E46E00D24035 /* JoinTable.c */,
+				C12BF17E1E69E46E00D24035 /* Linear.c */,
+				C12BF17F1E69E46E00D24035 /* Normalize.c */,
+				C12BF1801E69E46E00D24035 /* PReLU.c */,
+				C12BF1811E69E46E00D24035 /* Reshape.c */,
+				C12BF1821E69E46E00D24035 /* Sequential.c */,
+				C12BF1831E69E46E00D24035 /* SoftMax.c */,
+				C12BF1841E69E46E00D24035 /* SpatialAveragePooling.c */,
+				C12BF1851E69E46E00D24035 /* SpatialBatchNormalization.c */,
+				C12BF1861E69E46E00D24035 /* SpatialConvolution.c */,
+				C12BF1871E69E46E00D24035 /* SpatialConvolutionMM.c */,
+				C12BF1881E69E46E00D24035 /* SpatialFullConvolution.c */,
+				C12BF1891E69E46E00D24035 /* SpatialMaxPooling.c */,
+				C12BF18A1E69E46E00D24035 /* SpatialMaxUnpooling.c */,
+				C12BF18B1E69E46E00D24035 /* SpatialZeroPadding.c */,
+				C12BF18C1E69E46E00D24035 /* Threshold.c */,
+				C12BF18D1E69E46E00D24035 /* View.c */,
 			);
-			path = "AIperLife-iOsUITests";
+			name = modules;
+			path = thnets/modules;
 			sourceTree = "<group>";
 		};
 		C1FBFFDE1E57C668002EF598 = {
 			isa = PBXGroup;
 			children = (
+				C1159EB91E69E8DE00ABF833 /* neural-nets */,
+				C12BF1761E69E45D00D24035 /* thnets */,
 				C1FBFFE91E57C668002EF598 /* AIperLife-iOs */,
-				C1FBFFFE1E57C668002EF598 /* AIperLife-iOsTests */,
-				C1FB00091E57C668002EF598 /* AIperLife-iOsUITests */,
-				C1FBFFE81E57C668002EF598 /* Products */,
+				C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */,
+				C1159EB11E69E4D100ABF833 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		C1FBFFE81E57C668002EF598 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */,
-				C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */,
-				C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		C1FBFFE91E57C668002EF598 /* AIperLife-iOs */ = {
 			isa = PBXGroup;
 			children = (
-				C193C1411E61B26100248F71 /* thnets */,
 				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
 				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
 				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
 				C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */,
 				C1FBFFF61E57C668002EF598 /* Info.plist */,
+				C1159EBB1E69E99E00ABF833 /* Images.xcassets */,
 			);
 			path = "AIperLife-iOs";
-			sourceTree = "<group>";
-		};
-		C1FBFFFE1E57C668002EF598 /* AIperLife-iOsTests */ = {
-			isa = PBXGroup;
-			children = (
-				C1FBFFFF1E57C668002EF598 /* AIperLife_iOsTests.swift */,
-				C1FB00011E57C668002EF598 /* Info.plist */,
-			);
-			path = "AIperLife-iOsTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +221,7 @@
 			);
 			name = "AIperLife-iOsUITests";
 			productName = "AIperLife-iOsUITests";
-			productReference = C1FB00061E57C668002EF598 /* AIperLife-iOsUITests.xctest */;
+			productReference = C1159EB81E69E64C00ABF833 /* AIperLife-iOsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		C1FBFFE61E57C668002EF598 /* AIperLife-iOs */ = {
@@ -205,7 +238,7 @@
 			);
 			name = "AIperLife-iOs";
 			productName = "AIperLife-iOs";
-			productReference = C1FBFFE71E57C668002EF598 /* AIperLife-iOs.app */;
+			productReference = C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C1FBFFFA1E57C668002EF598 /* AIperLife-iOsTests */ = {
@@ -223,7 +256,7 @@
 			);
 			name = "AIperLife-iOsTests";
 			productName = "AIperLife-iOsTests";
-			productReference = C1FBFFFB1E57C668002EF598 /* AIperLife-iOsTests.xctest */;
+			productReference = C1159EB71E69E64C00ABF833 /* AIperLife-iOsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -243,6 +276,7 @@
 					};
 					C1FBFFE61E57C668002EF598 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6M8TQ93XUP;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -262,7 +296,7 @@
 				Base,
 			);
 			mainGroup = C1FBFFDE1E57C668002EF598;
-			productRefGroup = C1FBFFE81E57C668002EF598 /* Products */;
+			productRefGroup = C1FBFFDE1E57C668002EF598;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -285,8 +319,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C193C1821E61BA1F00248F71 /* thexport.py in Resources */,
-				C193C17D1E61BA1F00248F71 /* modules in Resources */,
+				C1159EBA1E69E8DE00ABF833 /* neural-nets in Resources */,
+				C1159EBC1E69E99E00ABF833 /* Images.xcassets in Resources */,
 				C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */,
 				C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */,
 			);
@@ -306,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FB000B1E57C668002EF598 /* AIperLife_iOsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,16 +347,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FBFFED1E57C668002EF598 /* ViewController.swift in Sources */,
-				C193C17E1E61BA1F00248F71 /* pytorch.c in Sources */,
-				C193C17A1E61BA1F00248F71 /* LICENSE.md in Sources */,
-				C193C17F1E61BA1F00248F71 /* README.md in Sources */,
-				C193C17C1E61BA1F00248F71 /* memorydebug.c in Sources */,
-				C193C17B1E61BA1F00248F71 /* Makefile in Sources */,
-				C193C1801E61BA1F00248F71 /* thapi.c in Sources */,
-				C193C1831E61BA1F00248F71 /* thload.c in Sources */,
-				C1FBFFEB1E57C668002EF598 /* AppDelegate.swift in Sources */,
-				C193C1811E61BA1F00248F71 /* thbasic.c in Sources */,
+				C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */,
+				C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */,
+				C12BF1AD1E69E48500D24035 /* thbasic.c in Sources */,
+				C12BF1951E69E46E00D24035 /* PReLU.c in Sources */,
+				C12BF18E1E69E46E00D24035 /* CAddTable.c in Sources */,
+				C12BF1AE1E69E48500D24035 /* thload.c in Sources */,
+				C12BF1901E69E46E00D24035 /* ConcatTable.c in Sources */,
+				C12BF18F1E69E46E00D24035 /* Concat.c in Sources */,
+				C12BF1921E69E46E00D24035 /* JoinTable.c in Sources */,
+				C12BF1991E69E46E00D24035 /* SpatialAveragePooling.c in Sources */,
+				C12BF1AC1E69E48500D24035 /* thapi.c in Sources */,
+				C12BF1931E69E46E00D24035 /* Linear.c in Sources */,
+				C12BF19F1E69E46E00D24035 /* SpatialMaxUnpooling.c in Sources */,
+				C12BF19B1E69E46E00D24035 /* SpatialConvolution.c in Sources */,
+				C12BF1971E69E46E00D24035 /* Sequential.c in Sources */,
+				C12BF19C1E69E46E00D24035 /* SpatialConvolutionMM.c in Sources */,
+				C12BF19D1E69E46E00D24035 /* SpatialFullConvolution.c in Sources */,
+				C12BF1911E69E46E00D24035 /* Dropout.c in Sources */,
+				C12BF1A01E69E46E00D24035 /* SpatialZeroPadding.c in Sources */,
+				C12BF1AB1E69E48500D24035 /* pytorch.c in Sources */,
+				C12BF19E1E69E46E00D24035 /* SpatialMaxPooling.c in Sources */,
+				C12BF1A21E69E46E00D24035 /* View.c in Sources */,
+				C12BF19A1E69E46E00D24035 /* SpatialBatchNormalization.c in Sources */,
+				C12BF1981E69E46E00D24035 /* SoftMax.c in Sources */,
+				C12BF1A11E69E46E00D24035 /* Threshold.c in Sources */,
+				C12BF1941E69E46E00D24035 /* Normalize.c in Sources */,
+				C12BF1AA1E69E48500D24035 /* memorydebug.c in Sources */,
+				C12BF1961E69E46E00D24035 /* Reshape.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FB00001E57C668002EF598 /* AIperLife_iOsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,11 +519,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 6M8TQ93XUP;
 				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AIperLife-iOs/AIperLife-iOs-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "thnets/thnets-camera-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -485,11 +537,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 6M8TQ93XUP;
 				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AIperLife-iOs/AIperLife-iOs-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "thnets/thnets-camera-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1634115C68B32BA0E68DDCCF279373A2D8F2A66F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E371572AB33201D07CB6F87F979109700E5699DF" : 9223372036854775807,
+    "1634115C68B32BA0E68DDCCF279373A2D8F2A66F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2EE7CF22-95EA-4CB3-B865-F876E5A98786",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E371572AB33201D07CB6F87F979109700E5699DF" : "..\/..\/Code\/github\/apps-iOs",
+    "1634115C68B32BA0E68DDCCF279373A2D8F2A66F" : "AIPerLife-iOs\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AIperLife-iOs",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AIperLife-iOs.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/culurciello\/AIPerLife-iOs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1634115C68B32BA0E68DDCCF279373A2D8F2A66F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/e-lab\/apps-iOs.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E371572AB33201D07CB6F87F979109700E5699DF"
+    }
+  ]
+}
