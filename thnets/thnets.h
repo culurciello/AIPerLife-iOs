@@ -471,7 +471,7 @@ typedef struct thnetwork
 } THNETWORK;
 
 void THInit();
-THNETWORK *THLoadNetwork(const char *path);
+THNETWORK *THLoadNetwork(const char *path, int dropclassifier);
 THFloatTensor *THForward(THNETWORK *net, THFloatTensor *in);
 void THMakeSpatial(THNETWORK *network, int size);
 int THProcessFloat(THNETWORK *network, float *data, int batchsize, int width, int height, float **result, int *outwidth, int *outheight);

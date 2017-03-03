@@ -219,7 +219,7 @@ THFloatTensor *THForward(THNETWORK *net, THFloatTensor *in)
 	else return forward(net->net, in);
 }
 
-THNETWORK *THLoadNetwork(const char *path)
+THNETWORK *THLoadNetwork(const char *path, int dropclassifier)
 {
 	char tmppath[255];
 	int i, longsize = 8;
@@ -292,6 +292,15 @@ THNETWORK *THLoadNetwork(const char *path)
 		net->statobj = 0;
 	}
 	THUseSpatialConvolutionMM(net, 2);
+	if(dropclassifier == 1) // drop classifier option to use network as feature extractor~
+   {
+   	if(net->net->modules[net->net->nelem-1].type == MT_SoftMax)
+         net->net->nelem--;
+      if(net->net->modules[net->net->nelem-1].type == MT_Linear)
+         net->net->nelem--;
+      if(net->net->modules[net->net->nelem-1].type == MT_View)
+         net->net->nelem--;
+   }
 	return net;
 }
 

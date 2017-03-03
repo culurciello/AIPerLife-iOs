@@ -157,11 +157,14 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         
         // Load Network
-        net = THLoadNetwork(docsPath)
-        //print(net)
+        net = THLoadNetwork(docsPath, 0) // 0 == full neural net, 1 == net with removed classifier (returns features)
+        print("network loaded:", net)
         
         // setup neural net:
-        if net != nil { THUseSpatialConvolutionMM(net, 2) }
+        if net != nil {
+            THUseSpatialConvolutionMM(net, 2)
+        }
+    
     }
     
     // resize and rescale func
