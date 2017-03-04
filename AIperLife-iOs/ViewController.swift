@@ -16,6 +16,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var textresults: UILabel!
     @IBOutlet weak var textfps: UILabel!
     @IBOutlet weak var buttonLearnProto: UIButton!
+    @IBOutlet weak var textprotonum: UILabel!
     
     
     override func viewDidLoad() {
@@ -213,6 +214,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     @IBAction func pressLearnProto(_ sender: Any) {
         protoNumber = protoNumber+1
+        self.textprotonum.text = "Protos: \(protoNumber+1)"
         protos[protoNumber] = embedding
     }
     

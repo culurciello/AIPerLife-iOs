@@ -42,28 +42,9 @@
 		C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C1FB00071E57C668002EF598 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C1FBFFDF1E57C668002EF598 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C1FBFFE61E57C668002EF598;
-			remoteInfo = "AIperLife-iOs";
-		};
-		C1FBFFFC1E57C668002EF598 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C1FBFFDF1E57C668002EF598 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C1FBFFE61E57C668002EF598;
-			remoteInfo = "AIperLife-iOs";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
-		C1159EB71E69E64C00ABF833 /* AIperLife-iOsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AIperLife-iOsTests.xctest"; path = "/Users/eugenioculurciello/FWDNXT/git/AIPerLife-iOs/build/Debug-iphoneos/AIperLife-iOsTests.xctest"; sourceTree = "<absolute>"; };
-		C1159EB81E69E64C00ABF833 /* AIperLife-iOsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "AIperLife-iOsUITests.xctest"; path = "/Users/eugenioculurciello/FWDNXT/git/AIPerLife-iOs/build/Debug-iphoneos/AIperLife-iOsUITests.xctest"; sourceTree = "<absolute>"; };
 		C1159EB91E69E8DE00ABF833 /* neural-nets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "neural-nets"; path = "../../../Code/github/apps-iOs/thnets-camera/neural-nets"; sourceTree = "<group>"; };
 		C1159EBB1E69E99E00ABF833 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AIperLife-iOs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,25 +83,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C1FB00031E57C668002EF598 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1FBFFE41E57C668002EF598 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1FBFFF81E57C668002EF598 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,24 +173,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C1FB00051E57C668002EF598 /* AIperLife-iOsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C1FB00151E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsUITests" */;
-			buildPhases = (
-				C1FB00021E57C668002EF598 /* Sources */,
-				C1FB00031E57C668002EF598 /* Frameworks */,
-				C1FB00041E57C668002EF598 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C1FB00081E57C668002EF598 /* PBXTargetDependency */,
-			);
-			name = "AIperLife-iOsUITests";
-			productName = "AIperLife-iOsUITests";
-			productReference = C1159EB81E69E64C00ABF833 /* AIperLife-iOsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		C1FBFFE61E57C668002EF598 /* AIperLife-iOs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1FB000F1E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOs" */;
@@ -241,24 +190,6 @@
 			productReference = C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C1FBFFFA1E57C668002EF598 /* AIperLife-iOsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C1FB00121E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsTests" */;
-			buildPhases = (
-				C1FBFFF71E57C668002EF598 /* Sources */,
-				C1FBFFF81E57C668002EF598 /* Frameworks */,
-				C1FBFFF91E57C668002EF598 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C1FBFFFD1E57C668002EF598 /* PBXTargetDependency */,
-			);
-			name = "AIperLife-iOsTests";
-			productName = "AIperLife-iOsTests";
-			productReference = C1159EB71E69E64C00ABF833 /* AIperLife-iOsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -269,21 +200,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Eugenio Culurciello";
 				TargetAttributes = {
-					C1FB00051E57C668002EF598 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = C1FBFFE61E57C668002EF598;
-					};
 					C1FBFFE61E57C668002EF598 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6M8TQ93XUP;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
-					};
-					C1FBFFFA1E57C668002EF598 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = C1FBFFE61E57C668002EF598;
 					};
 				};
 			};
@@ -301,20 +222,11 @@
 			projectRoot = "";
 			targets = (
 				C1FBFFE61E57C668002EF598 /* AIperLife-iOs */,
-				C1FBFFFA1E57C668002EF598 /* AIperLife-iOsTests */,
-				C1FB00051E57C668002EF598 /* AIperLife-iOsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C1FB00041E57C668002EF598 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1FBFFE51E57C668002EF598 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,23 +238,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1FBFFF91E57C668002EF598 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C1FB00021E57C668002EF598 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C1FBFFE31E57C668002EF598 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,27 +276,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1FBFFF71E57C668002EF598 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C1FB00081E57C668002EF598 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C1FBFFE61E57C668002EF598 /* AIperLife-iOs */;
-			targetProxy = C1FB00071E57C668002EF598 /* PBXContainerItemProxy */;
-		};
-		C1FBFFFD1E57C668002EF598 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C1FBFFE61E57C668002EF598 /* AIperLife-iOs */;
-			targetProxy = C1FBFFFC1E57C668002EF598 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C1FBFFEE1E57C668002EF598 /* Main.storyboard */ = {
@@ -548,60 +426,6 @@
 			};
 			name = Release;
 		};
-		C1FB00131E57C668002EF598 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "AIperLife-iOsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIperLife-iOs.app/AIperLife-iOs";
-			};
-			name = Debug;
-		};
-		C1FB00141E57C668002EF598 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "AIperLife-iOsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIperLife-iOs.app/AIperLife-iOs";
-			};
-			name = Release;
-		};
-		C1FB00161E57C668002EF598 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "AIperLife-iOsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "AIperLife-iOs";
-			};
-			name = Debug;
-		};
-		C1FB00171E57C668002EF598 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "AIperLife-iOsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOsUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "AIperLife-iOs";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,24 +434,6 @@
 			buildConfigurations = (
 				C1FB00101E57C668002EF598 /* Debug */,
 				C1FB00111E57C668002EF598 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C1FB00121E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C1FB00131E57C668002EF598 /* Debug */,
-				C1FB00141E57C668002EF598 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C1FB00151E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C1FB00161E57C668002EF598 /* Debug */,
-				C1FB00171E57C668002EF598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
