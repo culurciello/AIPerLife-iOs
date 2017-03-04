@@ -15,9 +15,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var camView: UIView!
     @IBOutlet weak var textresults: UILabel!
     @IBOutlet weak var textfps: UILabel!
-    @IBOutlet weak var buttonRecordProtoPressed: UIButton!
-//    @IBOutlet var protoButtons: Array<UIButton>?
-    @IBOutlet weak var protoButtons: UICollectionView!
+    @IBOutlet weak var buttonLearnProto: UIButton!
     
     
     override func viewDidLoad() {
@@ -84,12 +82,16 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     // THNETS neural network loading and initalization:
     let nnEyeSize = 128
+    let embeddingSize = 512 // enet 128 network has this embedding size
     var categories:[String] = []
     var net: UnsafeMutablePointer<THNETWORK>?
     // load neural net from project:
     let docsPath = Bundle.main.resourcePath! + "/neural-nets/"
     // prototypes of objects
-    var protos:[[CGFloat]] = [[]]
+    var protoNumber:Int = -1
+    var protos:[[Float]] = [[0.0]]
+    var embedding:[Float] = [0.0]
+    var protoString:[String] = ["1", "2", "3", "4", "5"]
     
     lazy var cameraSession: AVCaptureSession = {
         let captureSession = AVCaptureSession()
@@ -162,7 +164,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         
         
         // Load Network
-        net = THLoadNetwork(docsPath, 0) // 0 == full neural net, 1 == net with removed classifier (returns features)
+        net = THLoadNetwork(docsPath, 1) // 0 == full neural net, 1 == net with removed classifier (returns features)
         print("network loaded:", net)
         
         // setup neural net:
@@ -195,9 +197,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         return Array(buffer)
     }
     
-    func distance(a:[CGFloat], b:[CGFloat]) -> CGFloat {
+    func distance(a:[Float], b:[Float]) -> Float {
         // calculate the cosine distance:
-        var num:CGFloat = 0, den1:CGFloat = 0, den2:CGFloat = 0
+        var num:Float = 0, den1:Float = 0, den2:Float = 0
     
         for i in 0...a.count {
             num = num + a[i] * b[i]
@@ -209,6 +211,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         else { return 2 }
     }
     
+    @IBAction func pressLearnProto(_ sender: Any) {
+        protos[protoNumber] = embedding
+        protoNumber = protoNumber+1
+    }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         
@@ -262,51 +268,30 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         //print("TH out sizes:", outwidth, outheight)
         
         // convert results to array:
-        let embedding = convert(count: 512, data: results!)
+        embedding = convert(count: embeddingSize, data: results!)
         
-//        if (buttonRecordProtoPressed) {
-//            protos[saveproto] = embedding
-//            // save small bitmap of proto if desited
-//        }
-//        var min:CGFloat = 2
-//        var max:CGFloat = 0
-//        var best:Int = -1
-//        for i in 0...5 {
-//            if (protos[i] != nil) {
-//                var d = distance(a:protos[i], b:embedding)
-//                if (d > max) { max = d }
-//                if (d < min) {
-//                    best = i
-//                    min = d
-//                }
-//            }
-//        }
-//        
-//        // filter results by threshold:
-//        let threshold:CGFloat = 0.5
-//        if (min < max*threshold) {
-//            DispatchQueue.main.async { self.textresults.text = objectnames[best] + String.format("Distance: %.3f", distance) }
-//        } else {
-//            DispatchQueue.main.async { self.textresults.text = "" }
-//        }
-        
-        
-        // convert results to array:
-        let resultsArray = convert(count:categories.count, data: results!)
-        //print("Detections:", resultsArray)
-        //for i in 0...45 {
-        //    print(i, categories[i], resultsArray[i])
-        //}
-        let sorted = resultsArray.enumerated().sorted(by: {$0.element > $1.element})
-        // print them to console:
-        var stringResults:String = ""
-        for i in 0...4 {
-            //print(sorted[i], categories[sorted[i].0])
-            stringResults.append("\(categories[sorted[i].0]) \(sorted[i].1) \n")
+        // compute distace of camera view to protos:
+        var min:Float = 2
+        var max:Float = 0
+        var best:Int = -1
+        if protoNumber >= 0 {
+            for i in 0...protoNumber {
+                let d = distance(a:protos[i], b:embedding)
+                if (d > max) { max = d }
+                if (d < min) {
+                    best = i
+                    min = d
+                }
+            }
         }
         
-        // in order to display it in the main view, we need to dispatch it to the main view controller:
-        DispatchQueue.main.async { self.textresults.text = stringResults }
+        // filter results by threshold:
+        let threshold:Float = 0.5
+        if (min < max*threshold) {
+            DispatchQueue.main.async { self.textresults.text = self.protoString[best] + "Distance: \(self.distance)" }
+        } else {
+            DispatchQueue.main.async { self.textresults.text = "" }
+        }
         
         // print time:
         let methodFinish = NSDate()
