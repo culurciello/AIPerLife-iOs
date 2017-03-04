@@ -89,8 +89,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     let docsPath = Bundle.main.resourcePath! + "/neural-nets/"
     // prototypes of objects
     var protoNumber:Int = -1
-    var protos:[[Float]] = [[0.0]]
-    var embedding:[Float] = [0.0]
+    var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
+    var embedding:[Float] = []
     var protoString:[String] = ["1", "2", "3", "4", "5"]
     
     lazy var cameraSession: AVCaptureSession = {
@@ -201,7 +201,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // calculate the cosine distance:
         var num:Float = 0, den1:Float = 0, den2:Float = 0
     
-        for i in 0...a.count {
+        for i in 0...embeddingSize-1 {
             num = num + a[i] * b[i]
             den1 = den1 + a[i] * a[i]
             den2 = den2 + b[i] * b[i]
@@ -212,8 +212,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     @IBAction func pressLearnProto(_ sender: Any) {
-        protos[protoNumber] = embedding
         protoNumber = protoNumber+1
+        protos[protoNumber] = embedding
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
@@ -288,7 +288,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // filter results by threshold:
         let threshold:Float = 0.5
         if (min < max*threshold) {
-            DispatchQueue.main.async { self.textresults.text = self.protoString[best] + "Distance: \(self.distance)" }
+            DispatchQueue.main.async { self.textresults.text = "Detected: " + self.protoString[best] + " Distance: \(min)" }
         } else {
             DispatchQueue.main.async { self.textresults.text = "" }
         }
