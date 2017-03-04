@@ -83,7 +83,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     // THNETS neural network loading and initalization:
     let nnEyeSize = 128
-    let embeddingSize = 512 // enet 128 network has this embedding size
+    var embeddingSize:Int32 = 0 // network embedding size returned by THNETS
     var categories:[String] = []
     var net: UnsafeMutablePointer<THNETWORK>?
     // load neural net from project:
@@ -202,7 +202,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         // calculate the cosine distance:
         var num:Float = 0, den1:Float = 0, den2:Float = 0
     
-        for i in 0...embeddingSize-1 {
+        for i in 0...Int(embeddingSize-1) {
             num = num + a[i] * b[i]
             den1 = den1 + a[i] * a[i]
             den2 = den2 + b[i] * b[i]
@@ -266,11 +266,11 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         var results: UnsafeMutablePointer<Float>?
         var outwidth: Int32 = 0
         var outheight: Int32 = 0
-        THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0));
+        embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0));
         //print("TH out sizes:", outwidth, outheight)
         
         // convert results to array:
-        embedding = convert(count: embeddingSize, data: results!)
+        embedding = convert(count: Int(embeddingSize), data: results!)
         
         // compute distace of camera view to protos:
         var min:Float = 2
