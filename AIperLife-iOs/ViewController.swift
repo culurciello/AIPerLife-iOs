@@ -18,10 +18,23 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var buttonLearnProto: UIButton!
     @IBOutlet weak var textprotonum: UILabel!
     
+    @IBOutlet var loadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCameraSession()
+        
+        let defaults = UserDefaults.standard
+        
+        if defaults.object(forKey: "ObjNum") == nil {
+            print("Nothing to load, Load button hidden")
+            loadButton.isHidden = true
+        } else {
+            print("Save data found, Load button not hidden")
+            loadButton.isHidden = false
+        }
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -212,10 +225,95 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         else { return 2 }
     }
     
+    /** Learn Button Pressed
+        Set maximum to 3 for debugging purposes
+    **/
     @IBAction func pressLearnProto(_ sender: Any) {
-        protoNumber = protoNumber+1
-        self.textprotonum.text = "Protos: \(protoNumber+1)"
-        protos[protoNumber] = embedding
+        
+        if protoNumber < 2 {
+            
+            protoNumber = protoNumber+1
+            self.textprotonum.text = "Protos: \(protoNumber+1)"
+            protos[protoNumber] = embedding
+            
+        } else {
+            
+            textprotonum.text = "Maximum reached"
+            
+        }
+        
+    }
+    
+    //Prototype save function
+    @IBAction func savePressed(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard
+        
+        //save items
+        defaults.set(protoNumber, forKey: "ObjNum")
+        
+        print("Saving \(protoNumber+1) itmes")
+
+        for idx in 0...protoNumber{
+            
+            let key = "obj" + String(idx)
+            defaults.setValue(embedding, forKey: key)
+            print("idx \(idx) is  \(embedding[0])")
+            
+        }
+        //make load button appear
+        loadButton.isHidden = false
+    }
+    
+    //Prototype load function
+    @IBAction func loadPressed(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard
+        let numload = defaults.integer(forKey: "ObjNum")
+
+        print("loading \(numload+1) items")
+        
+        self.textprotonum.text = "Protos: \(numload+1)"
+        
+        for idx in 0...numload {
+            let key = "obj" + String(idx)
+            protos[idx] = defaults.array(forKey: key) as! [Float]
+            print( "protos \(idx) is \(protos[idx][0])")
+        }
+
+        protoNumber = numload
+        print(protoNumber)
+    }
+    
+    //prototype clear save function
+    @IBAction func clearPressed(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        if defaults.object(forKey: "ObjNum") == nil {
+            
+            print("No saved data to clear")
+            
+        } else {
+            //clear saved data
+            let numClear = defaults.integer(forKey: "ObjNum")
+            
+            print("removing \(numClear+1) items")
+            
+            for idx in 0...numClear{
+                
+                let key = "obj" + String(idx)
+                defaults.removeObject(forKey: key)
+                
+            }
+            defaults.removeObject(forKey: "ObjNum")
+            
+            //make sure chages saved
+            defaults.synchronize()
+            loadButton.isHidden = true
+
+        }
+        protoNumber = -1
+        textprotonum.text = "Protos: \(protoNumber+1)"
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
@@ -300,6 +398,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         let executionTime = methodFinish.timeIntervalSince(methodStart as Date)
         //print("Processing time: \(executionTime) \n")
         DispatchQueue.main.async { self.textfps.text = "FPS: \(1/executionTime)" }
+        
         
     }
     
