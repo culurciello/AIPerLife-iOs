@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86F1F47E1E6E0F2400DCCAB4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */; };
 		C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1159EB21E69E4D200ABF833 /* Accelerate.framework */; };
 		C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
 		C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
 		C1159EB91E69E8DE00ABF833 /* neural-nets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "neural-nets"; path = "../../../Code/github/apps-iOs/thnets-camera/neural-nets"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
 				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
 				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
+				86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */,
 				C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */,
 				C1FBFFF61E57C668002EF598 /* Info.plist */,
 				C1159EBB1E69E99E00ABF833 /* Images.xcassets */,
@@ -254,6 +257,7 @@
 				C12BF1901E69E46E00D24035 /* ConcatTable.c in Sources */,
 				C12BF18F1E69E46E00D24035 /* Concat.c in Sources */,
 				C12BF1921E69E46E00D24035 /* JoinTable.c in Sources */,
+				86F1F47E1E6E0F2400DCCAB4 /* MenuViewController.swift in Sources */,
 				C12BF1991E69E46E00D24035 /* SpatialAveragePooling.c in Sources */,
 				C12BF1AC1E69E48500D24035 /* thapi.c in Sources */,
 				C12BF1931E69E46E00D24035 /* Linear.c in Sources */,
