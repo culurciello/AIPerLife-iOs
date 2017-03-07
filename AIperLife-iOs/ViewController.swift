@@ -12,7 +12,12 @@ import CoreImage
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    @IBOutlet weak var camView: UIView!
+    //Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    //UIVariables
     @IBOutlet weak var textresults: UILabel!
     @IBOutlet weak var textfps: UILabel!
     @IBOutlet weak var buttonLearnProto: UIButton!
@@ -40,9 +45,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        camView.layer.addSublayer(previewLayer)
-        camView.addSubview(textresults)
-        camView.addSubview(textfps)
+        view.layer.addSublayer(previewLayer)
+        view.addSubview(textresults)
+        view.addSubview(textfps)
         
         cameraSession.startRunning()
     }
