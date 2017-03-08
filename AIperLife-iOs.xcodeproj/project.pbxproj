@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */; };
+		86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4711E6BBE7F00DCCAB4 /* categories.txt */; };
+		86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */; };
+		86F1F4791E6BBE8000DCCAB4 /* model.net in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4731E6BBE7F00DCCAB4 /* model.net */; };
+		86F1F47A1E6BBE8000DCCAB4 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4741E6BBE7F00DCCAB4 /* README.rtf */; };
+		86F1F47B1E6BBE8000DCCAB4 /* stat.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4751E6BBE7F00DCCAB4 /* stat.t7 */; };
 		86F1F47E1E6E0F2400DCCAB4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */; };
+		86F1F4801E6F617F00DCCAB4 /* playViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */; };
+		86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */; };
 		C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1159EB21E69E4D200ABF833 /* Accelerate.framework */; };
 		C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
 		C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
-		C1159EBA1E69E8DE00ABF833 /* neural-nets in Resources */ = {isa = PBXBuildFile; fileRef = C1159EB91E69E8DE00ABF833 /* neural-nets */; };
 		C1159EBC1E69E99E00ABF833 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1159EBB1E69E99E00ABF833 /* Images.xcassets */; };
 		C12BF18E1E69E46E00D24035 /* CAddTable.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1781E69E46E00D24035 /* CAddTable.c */; };
 		C12BF18F1E69E46E00D24035 /* Concat.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF17A1E69E46E00D24035 /* Concat.c */; };
@@ -45,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playViewController.swift; sourceTree = "<group>"; };
+		86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
 		C1159EB91E69E8DE00ABF833 /* neural-nets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "neural-nets"; path = "../../../Code/github/apps-iOs/thnets-camera/neural-nets"; sourceTree = "<group>"; };
@@ -165,6 +174,8 @@
 				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
 				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
 				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
+				86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */,
+				86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */,
 				86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */,
 				C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */,
 				C1FBFFF61E57C668002EF598 /* Info.plist */,
@@ -264,6 +275,7 @@
 				C12BF19F1E69E46E00D24035 /* SpatialMaxUnpooling.c in Sources */,
 				C12BF19B1E69E46E00D24035 /* SpatialConvolution.c in Sources */,
 				C12BF1971E69E46E00D24035 /* Sequential.c in Sources */,
+				86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */,
 				C12BF19C1E69E46E00D24035 /* SpatialConvolutionMM.c in Sources */,
 				C12BF19D1E69E46E00D24035 /* SpatialFullConvolution.c in Sources */,
 				C12BF1911E69E46E00D24035 /* Dropout.c in Sources */,
@@ -272,6 +284,7 @@
 				C12BF19E1E69E46E00D24035 /* SpatialMaxPooling.c in Sources */,
 				C12BF1A21E69E46E00D24035 /* View.c in Sources */,
 				C12BF19A1E69E46E00D24035 /* SpatialBatchNormalization.c in Sources */,
+				86F1F4801E6F617F00DCCAB4 /* playViewController.swift in Sources */,
 				C12BF1981E69E46E00D24035 /* SoftMax.c in Sources */,
 				C12BF1A11E69E46E00D24035 /* Threshold.c in Sources */,
 				C12BF1941E69E46E00D24035 /* Normalize.c in Sources */,
