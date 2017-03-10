@@ -106,7 +106,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var categories:[String] = []
     var net: UnsafeMutablePointer<THNETWORK>?
     // load neural net from project:
-    let docsPath = Bundle.main.resourcePath!// + "/neural-nets/"
+    let docsPath = Bundle.main.resourcePath! + "/neural-nets/"
     // prototypes of objects
     var protoNumber:Int = -1
     var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
