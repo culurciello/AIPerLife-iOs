@@ -1,21 +1,19 @@
 //
-//  playViewController.swift
+//  PlayGameViewController.swift
 //  AIperLife-iOs
 //
-//  Created by Yi Kai Lee on 2017/3/7.
+//  Created by Yi Kai Lee on 2017/3/9.
 //  Copyright © 2017年 Eugenio Culurciello. All rights reserved.
 //
 
 import UIKit
 
-class playViewController: UIViewController {
+class PlayGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        print("play view loaded")
     }
 
     override func didReceiveMemoryWarning() {

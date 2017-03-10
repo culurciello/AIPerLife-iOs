@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreImage
+import RealmSwift
 
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
@@ -252,6 +253,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     //Prototype save function
     @IBAction func savePressed(_ sender: Any) {
         
+        //open a realm
+        let realm = try! Realm()
+        
         let defaults = UserDefaults.standard
         
         //prevent saving when nothing is recorded
@@ -261,8 +265,12 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
         
         //save items
-        defaults.set(protoNumber, forKey: "ObjNum")
+        let save = SaveData(title: "test", numObj: (protoNumber+1))
+        try! realm.write {
+            realm.add(save)
+        }
         
+        defaults.set(protoNumber, forKey: "ObjNum")
         print("Saving \(protoNumber+1) itmes")
 
         for idx in 0...protoNumber{
@@ -294,6 +302,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
 
         protoNumber = numload
         print(protoNumber)
+        
+        let realm = try! Realm()
+        var save = realm.objects(SaveData)
+        print("\(save[0].title) save data has \(save[0].numObj) objects" )
     }
     
     //prototype clear save function

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8618949D1E720B0000A8E560 /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618949C1E720B0000A8E560 /* PlayGameViewController.swift */; };
+		8633490D1E728DA500828A3F /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633490C1E728DA500828A3F /* ManageViewController.swift */; };
 		86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */; };
 		86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4711E6BBE7F00DCCAB4 /* categories.txt */; };
 		86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */; };
@@ -14,8 +16,8 @@
 		86F1F47A1E6BBE8000DCCAB4 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4741E6BBE7F00DCCAB4 /* README.rtf */; };
 		86F1F47B1E6BBE8000DCCAB4 /* stat.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4751E6BBE7F00DCCAB4 /* stat.t7 */; };
 		86F1F47E1E6E0F2400DCCAB4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */; };
-		86F1F4801E6F617F00DCCAB4 /* playViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */; };
 		86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */; };
+		86F1F4861E714AC400DCCAB4 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F4851E714AC400DCCAB4 /* SaveData.swift */; };
 		C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1159EB21E69E4D200ABF833 /* Accelerate.framework */; };
 		C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
 		C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
@@ -48,15 +50,26 @@
 		C12BF1AE1E69E48500D24035 /* thload.c in Sources */ = {isa = PBXBuildFile; fileRef = C12BF1A71E69E48500D24035 /* thload.c */; };
 		C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFEE1E57C668002EF598 /* Main.storyboard */; };
 		C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */; };
+		C44E930CDD4A3C5B18AF0695 /* Pods_AIperLife_iOs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73827696DC4927B18A418426 /* Pods_AIperLife_iOs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1650FA7F76B427E09C935048 /* Pods-AIperLife-iOs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIperLife-iOs.release.xcconfig"; path = "Pods/Target Support Files/Pods-AIperLife-iOs/Pods-AIperLife-iOs.release.xcconfig"; sourceTree = "<group>"; };
+		73827696DC4927B18A418426 /* Pods_AIperLife_iOs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIperLife_iOs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8618949C1E720B0000A8E560 /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
+		8633490C1E728DA500828A3F /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
+		86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = aux.t7; sourceTree = "<group>"; };
+		86F1F4711E6BBE7F00DCCAB4 /* categories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categories.txt; sourceTree = "<group>"; };
+		86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = classes.t7; sourceTree = "<group>"; };
+		86F1F4731E6BBE7F00DCCAB4 /* model.net */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.net; sourceTree = "<group>"; };
+		86F1F4741E6BBE7F00DCCAB4 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
+		86F1F4751E6BBE7F00DCCAB4 /* stat.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = stat.t7; sourceTree = "<group>"; };
 		86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playViewController.swift; sourceTree = "<group>"; };
 		86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		86F1F4851E714AC400DCCAB4 /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
+		9B57AC93F5A9923F2B6080A2 /* Pods-AIperLife-iOs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIperLife-iOs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIperLife-iOs/Pods-AIperLife-iOs.debug.xcconfig"; sourceTree = "<group>"; };
 		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
-		C1159EB91E69E8DE00ABF833 /* neural-nets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "neural-nets"; path = "../../../Code/github/apps-iOs/thnets-camera/neural-nets"; sourceTree = "<group>"; };
 		C1159EBB1E69E99E00ABF833 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AIperLife-iOs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C12BF1781E69E46E00D24035 /* CAddTable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CAddTable.c; sourceTree = "<group>"; };
@@ -99,16 +112,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */,
+				C44E930CDD4A3C5B18AF0695 /* Pods_AIperLife_iOs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86F1F46F1E6BBE7F00DCCAB4 /* neural-nets */ = {
+			isa = PBXGroup;
+			children = (
+				86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */,
+				86F1F4711E6BBE7F00DCCAB4 /* categories.txt */,
+				86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */,
+				86F1F4731E6BBE7F00DCCAB4 /* model.net */,
+				86F1F4741E6BBE7F00DCCAB4 /* README.rtf */,
+				86F1F4751E6BBE7F00DCCAB4 /* stat.t7 */,
+			);
+			path = "neural-nets";
+			sourceTree = "<group>";
+		};
+		B897925F135D5116ABCB45F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B57AC93F5A9923F2B6080A2 /* Pods-AIperLife-iOs.debug.xcconfig */,
+				1650FA7F76B427E09C935048 /* Pods-AIperLife-iOs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C1159EB11E69E4D100ABF833 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				C1159EB21E69E4D200ABF833 /* Accelerate.framework */,
+				73827696DC4927B18A418426 /* Pods_AIperLife_iOs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,11 +197,12 @@
 		C1FBFFDE1E57C668002EF598 = {
 			isa = PBXGroup;
 			children = (
-				C1159EB91E69E8DE00ABF833 /* neural-nets */,
+				86F1F46F1E6BBE7F00DCCAB4 /* neural-nets */,
 				C12BF1761E69E45D00D24035 /* thnets */,
 				C1FBFFE91E57C668002EF598 /* AIperLife-iOs */,
 				C12BF16B1E69E3BF00D24035 /* AIperLife-iOs.app */,
 				C1159EB11E69E4D100ABF833 /* Frameworks */,
+				B897925F135D5116ABCB45F6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,13 +211,15 @@
 			children = (
 				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
 				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
+				86F1F4851E714AC400DCCAB4 /* SaveData.swift */,
 				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
 				86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */,
-				86F1F47F1E6F617F00DCCAB4 /* playViewController.swift */,
 				86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */,
+				8618949C1E720B0000A8E560 /* PlayGameViewController.swift */,
 				C1FBFFF31E57C668002EF598 /* LaunchScreen.storyboard */,
 				C1FBFFF61E57C668002EF598 /* Info.plist */,
 				C1159EBB1E69E99E00ABF833 /* Images.xcassets */,
+				8633490C1E728DA500828A3F /* ManageViewController.swift */,
 			);
 			path = "AIperLife-iOs";
 			sourceTree = "<group>";
@@ -191,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1FB000F1E57C668002EF598 /* Build configuration list for PBXNativeTarget "AIperLife-iOs" */;
 			buildPhases = (
+				BDA55CCA2E3B7114671470BE /* [CP] Check Pods Manifest.lock */,
 				C1FBFFE31E57C668002EF598 /* Sources */,
 				C1FBFFE41E57C668002EF598 /* Frameworks */,
 				C1FBFFE51E57C668002EF598 /* Resources */,
+				17B8967A1E2E391597E99630 /* [CP] Embed Pods Frameworks */,
+				7DFF94C5263DF2FD51C9B87E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,14 +288,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1159EBA1E69E8DE00ABF833 /* neural-nets in Resources */,
+				86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */,
+				86F1F47B1E6BBE8000DCCAB4 /* stat.t7 in Resources */,
+				86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */,
 				C1159EBC1E69E99E00ABF833 /* Images.xcassets in Resources */,
+				86F1F47A1E6BBE8000DCCAB4 /* README.rtf in Resources */,
 				C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */,
 				C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */,
+				86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */,
+				86F1F4791E6BBE8000DCCAB4 /* model.net in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17B8967A1E2E391597E99630 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIperLife-iOs/Pods-AIperLife-iOs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DFF94C5263DF2FD51C9B87E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AIperLife-iOs/Pods-AIperLife-iOs-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA55CCA2E3B7114671470BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1FBFFE31E57C668002EF598 /* Sources */ = {
@@ -261,10 +357,12 @@
 			files = (
 				C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */,
 				C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */,
+				8633490D1E728DA500828A3F /* ManageViewController.swift in Sources */,
 				C12BF1AD1E69E48500D24035 /* thbasic.c in Sources */,
 				C12BF1951E69E46E00D24035 /* PReLU.c in Sources */,
 				C12BF18E1E69E46E00D24035 /* CAddTable.c in Sources */,
 				C12BF1AE1E69E48500D24035 /* thload.c in Sources */,
+				8618949D1E720B0000A8E560 /* PlayGameViewController.swift in Sources */,
 				C12BF1901E69E46E00D24035 /* ConcatTable.c in Sources */,
 				C12BF18F1E69E46E00D24035 /* Concat.c in Sources */,
 				C12BF1921E69E46E00D24035 /* JoinTable.c in Sources */,
@@ -277,6 +375,7 @@
 				C12BF1971E69E46E00D24035 /* Sequential.c in Sources */,
 				86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */,
 				C12BF19C1E69E46E00D24035 /* SpatialConvolutionMM.c in Sources */,
+				86F1F4861E714AC400DCCAB4 /* SaveData.swift in Sources */,
 				C12BF19D1E69E46E00D24035 /* SpatialFullConvolution.c in Sources */,
 				C12BF1911E69E46E00D24035 /* Dropout.c in Sources */,
 				C12BF1A01E69E46E00D24035 /* SpatialZeroPadding.c in Sources */,
@@ -284,7 +383,6 @@
 				C12BF19E1E69E46E00D24035 /* SpatialMaxPooling.c in Sources */,
 				C12BF1A21E69E46E00D24035 /* View.c in Sources */,
 				C12BF19A1E69E46E00D24035 /* SpatialBatchNormalization.c in Sources */,
-				86F1F4801E6F617F00DCCAB4 /* playViewController.swift in Sources */,
 				C12BF1981E69E46E00D24035 /* SoftMax.c in Sources */,
 				C12BF1A11E69E46E00D24035 /* Threshold.c in Sources */,
 				C12BF1941E69E46E00D24035 /* Normalize.c in Sources */,
@@ -410,6 +508,7 @@
 		};
 		C1FB00101E57C668002EF598 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B57AC93F5A9923F2B6080A2 /* Pods-AIperLife-iOs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -428,6 +527,7 @@
 		};
 		C1FB00111E57C668002EF598 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1650FA7F76B427E09C935048 /* Pods-AIperLife-iOs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
