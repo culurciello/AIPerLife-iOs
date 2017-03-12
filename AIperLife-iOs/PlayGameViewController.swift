@@ -7,29 +7,42 @@
 //
 
 import UIKit
+import AVFoundation
 
-class PlayGameViewController: UIViewController {
+class PlayGameViewController: UIViewController, FrameExtractorDelegate {
+    
+    var frameExtractor : FrameExtractor!
 
+    @IBOutlet var playImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        frameExtractor = FrameExtractor()
+        frameExtractor.delegate = self
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func captured(image: UIImage) {
+        playImageView.image =  image
     }
-    */
-
+    
+    override func viewWillLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        //Manage the UIView Rotations
+        let currentDevice: UIDevice = UIDevice.current
+        let orientation: UIDeviceOrientation = currentDevice.orientation
+        switch (orientation) {
+            case .landscapeRight:
+                playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+                break
+            case .landscapeLeft:
+                playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2*3)
+                break
+            default:
+                playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
+                break
+        }
+    }
 }

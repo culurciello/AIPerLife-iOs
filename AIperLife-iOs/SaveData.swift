@@ -40,7 +40,6 @@ class SaveData: Object {
         self.title = title
         self.numObj = numObj
     }
-    
 }
 
 /*
@@ -49,12 +48,22 @@ class SaveData: Object {
  * order:    Order of the object in relation to another
  * treasure: Data of the object
  * hint:     Sting of text for description of a object
+ * tresure:  list of floats
  *
  */
 
 class Treasure: Object {
     dynamic var owner: SaveData?
     dynamic var order = -1
-    dynamic var treasure : [Float]?
     dynamic var hint : String? = nil
+    let treasure = List<FloatObject>()
 }
+
+/*
+ * Realm cannot store arrays, this is a workaround class
+ */
+
+class FloatObject: Object {
+    dynamic var value : Float = 0.0
+}
+

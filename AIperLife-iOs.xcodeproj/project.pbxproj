@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8618949D1E720B0000A8E560 /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618949C1E720B0000A8E560 /* PlayGameViewController.swift */; };
 		8633490D1E728DA500828A3F /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633490C1E728DA500828A3F /* ManageViewController.swift */; };
+		8633490F1E74A89500828A3F /* FrameExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633490E1E74A89500828A3F /* FrameExtractor.swift */; };
 		86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */; };
 		86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4711E6BBE7F00DCCAB4 /* categories.txt */; };
 		86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */; };
@@ -58,6 +59,7 @@
 		73827696DC4927B18A418426 /* Pods_AIperLife_iOs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIperLife_iOs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8618949C1E720B0000A8E560 /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		8633490C1E728DA500828A3F /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
+		8633490E1E74A89500828A3F /* FrameExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameExtractor.swift; sourceTree = "<group>"; };
 		86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = aux.t7; sourceTree = "<group>"; };
 		86F1F4711E6BBE7F00DCCAB4 /* categories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categories.txt; sourceTree = "<group>"; };
 		86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = classes.t7; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				C1FBFFF61E57C668002EF598 /* Info.plist */,
 				C1159EBB1E69E99E00ABF833 /* Images.xcassets */,
 				8633490C1E728DA500828A3F /* ManageViewController.swift */,
+				8633490E1E74A89500828A3F /* FrameExtractor.swift */,
 			);
 			path = "AIperLife-iOs";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8633490F1E74A89500828A3F /* FrameExtractor.swift in Sources */,
 				C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */,
 				C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */,
 				8633490D1E728DA500828A3F /* ManageViewController.swift in Sources */,
