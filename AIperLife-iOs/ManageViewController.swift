@@ -30,6 +30,10 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
             //remove all object in test saves
             self.testsaves.removeAll()
             self.tableView.reloadData()
+            
+            //remove all UserDefaults
+            let defaults = UserDefaults.standard
+            defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         }
         let cancelAction = UIAlertAction(title: "cancel", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in

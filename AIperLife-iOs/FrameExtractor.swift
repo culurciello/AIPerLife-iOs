@@ -14,13 +14,9 @@
 import UIKit
 import AVFoundation
 
-protocol FrameExtractorDelegate: class {
-    func captured(image: UIImage)
-}
-
 class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
-    weak var delegate: FrameExtractorDelegate?
+    //weak var delegate: FrameExtractorDelegate?
     
     private let position = AVCaptureDevicePosition.back
     private let quality = AVCaptureSessionPresetMedium
@@ -42,6 +38,15 @@ class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         }
     }
     
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        /*
+         * FrameExtractor is a base class and this function is intentionally empty.
+         * This method captures each frame.
+         * Define a subclass and override this function to perform different operation as needed
+         *
+         */
+    }
+    
     /*
      *  Helper functions
      */
@@ -60,22 +65,13 @@ class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         guard let connection = videoOutput.connection(withMediaType: AVFoundation.AVMediaTypeVideo) else { return }
         guard connection.isVideoOrientationSupported else { return }
         connection.videoOrientation = .portrait
-        
-    }
-    
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
-        DispatchQueue.main.async {
-            [unowned self] in
-            self.delegate?.captured(image: uiImage)
-        }
     }
     
     private func selectCaptureDevice() -> AVCaptureDevice? {
         return AVCaptureDevice.defaultDevice(withDeviceType: .builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: position)
     }
     
-    private func imageFromSampleBuffer(sampleBuffer: CMSampleBuffer) -> UIImage? {
+     func imageFromSampleBuffer(sampleBuffer: CMSampleBuffer) -> UIImage? {
         guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return nil }
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
         guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else { return nil }
@@ -87,11 +83,9 @@ class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         case .authorized:
             permissionGranted = true
             break
-            
         case .notDetermined:
             requestPermission()
             break
-            
         default:
             permissionGranted = false
             break
@@ -105,6 +99,26 @@ class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
             self.permissionGranted = granted
             self.sessionQueue.resume()
         }
+    }
+    
+    func convert<T>(count: Int, data: UnsafePointer<T>) -> [T] {
+        
+        let buffer = UnsafeBufferPointer(start: data, count: count);
+        return Array(buffer)
+    }
+    
+    func distance(a:[Float], b:[Float], embeddingSize:Int32) -> Float {
+        // calculate the cosine distance:
+        var num:Float = 0, den1:Float = 0, den2:Float = 0
+        
+        for i in 0...Int(embeddingSize-1) {
+            num = num + a[i] * b[i]
+            den1 = den1 + a[i] * a[i]
+            den2 = den2 + b[i] * b[i]
+        }
+        den1 = sqrt(den1 * den2)
+        if den1 > 0 { return (1-num/den1) }
+        else { return 2 }
     }
 }
 

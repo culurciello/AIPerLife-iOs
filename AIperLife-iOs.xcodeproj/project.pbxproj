@@ -10,6 +10,8 @@
 		8618949D1E720B0000A8E560 /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8618949C1E720B0000A8E560 /* PlayGameViewController.swift */; };
 		8633490D1E728DA500828A3F /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633490C1E728DA500828A3F /* ManageViewController.swift */; };
 		8633490F1E74A89500828A3F /* FrameExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633490E1E74A89500828A3F /* FrameExtractor.swift */; };
+		86A1FE5B1E7798F300979F6B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1FE5A1E7798F300979F6B /* Utility.swift */; };
+		86A1FE5D1E77991400979F6B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1FE5C1E77991400979F6B /* CreateViewController.swift */; };
 		86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */; };
 		86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4711E6BBE7F00DCCAB4 /* categories.txt */; };
 		86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */; };
@@ -60,6 +62,8 @@
 		8618949C1E720B0000A8E560 /* PlayGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		8633490C1E728DA500828A3F /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
 		8633490E1E74A89500828A3F /* FrameExtractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameExtractor.swift; sourceTree = "<group>"; };
+		86A1FE5A1E7798F300979F6B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		86A1FE5C1E77991400979F6B /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = aux.t7; sourceTree = "<group>"; };
 		86F1F4711E6BBE7F00DCCAB4 /* categories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categories.txt; sourceTree = "<group>"; };
 		86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = classes.t7; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				C1159EBB1E69E99E00ABF833 /* Images.xcassets */,
 				8633490C1E728DA500828A3F /* ManageViewController.swift */,
 				8633490E1E74A89500828A3F /* FrameExtractor.swift */,
+				86A1FE5A1E7798F300979F6B /* Utility.swift */,
+				86A1FE5C1E77991400979F6B /* CreateViewController.swift */,
 			);
 			path = "AIperLife-iOs";
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A1FE5B1E7798F300979F6B /* Utility.swift in Sources */,
 				8633490F1E74A89500828A3F /* FrameExtractor.swift in Sources */,
 				C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */,
 				C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */,
@@ -377,6 +384,7 @@
 				C12BF19F1E69E46E00D24035 /* SpatialMaxUnpooling.c in Sources */,
 				C12BF19B1E69E46E00D24035 /* SpatialConvolution.c in Sources */,
 				C12BF1971E69E46E00D24035 /* Sequential.c in Sources */,
+				86A1FE5D1E77991400979F6B /* CreateViewController.swift in Sources */,
 				86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */,
 				C12BF19C1E69E46E00D24035 /* SpatialConvolutionMM.c in Sources */,
 				86F1F4861E714AC400DCCAB4 /* SaveData.swift in Sources */,

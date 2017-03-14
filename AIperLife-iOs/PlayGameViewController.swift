@@ -9,22 +9,225 @@
 import UIKit
 import AVFoundation
 
-class PlayGameViewController: UIViewController, FrameExtractorDelegate {
+
+/*
+ *  Create a subclass of FrameExtractor to play game
+ */
+protocol IdentifyFrameDelegate: class {
+    func captured(image: UIImage)
+    func fps(time: Double)
+    func detection(info: String)
+}
+
+class IdentifyFrame: FrameExtractor {
     
-    var frameExtractor : FrameExtractor!
+    weak var delegate: IdentifyFrameDelegate?
+    
+    
+    // THNETS neural network loading and initalization:
+    let nnEyeSize = 128
+    var embeddingSize:Int32 = 0 // network embedding size returned by THNETS
+    var categories:[String] = []
+    var net: UnsafeMutablePointer<THNETWORK>?
+    // load neural net from project:
+    let docsPath = Bundle.main.resourcePath!// + "/neural-nets/"
+    // prototypes of objects
+    var protoNumber:Int = -1
+    var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
+    var embedding:[Float] = []
+    var protoString:[String] = ["1", "2", "3", "4", "5"]
+    
+    override init() {
+        super.init()
+
+        THInit()
+        //test if correct file located
+        let fileManager = FileManager.default
+        do {
+            let docsArray = try fileManager.contentsOfDirectory(atPath: docsPath)
+            print(docsArray)
+        } catch {
+            print(error)
+        }
+        
+        // load categories file:
+        if true {
+            do {
+                let data = try String(contentsOfFile: "\(docsPath)/categories.txt", encoding: .utf8)
+                categories = data.components(separatedBy: .newlines)
+                categories.remove(at: 0)
+                categories.remove(at: 46)
+            } catch {
+                print(error)
+            }
+        }
+        
+        // Load Network
+        net = THLoadNetwork(docsPath, 1) // 0 == full neural net, 1 == net with removed classifier (returns features)
+        
+        // setup neural net:
+        if net != nil {
+            THUseSpatialConvolutionMM(net, 2)
+        }
+        
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "savedImage0") != nil {
+            let tempdata = defaults.object(forKey: "savedImage0") as! NSData
+            //let tempimage = UIImage(data: tempdata as Data)
+            
+            let cropWidth = nnEyeSize
+            let cropHeight = nnEyeSize
+            let croppedScaledImage = UIImage(data: tempdata as Data) //Util.resizeImage(image: tempimage!, newWidth: CGFloat(nnEyeSize))
+            let pixelData = croppedScaledImage?.cgImage!.dataProvider!.data
+            let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+            /// convert BGRA to RGB:
+            var idx = 0
+            var dataRGB = [CUnsignedChar](repeating: 0, count: (nnEyeSize*nnEyeSize*3))
+            for i in stride(from:0, through: nnEyeSize*nnEyeSize*4-1, by: 4) { // every 4 values do this:
+                dataRGB[idx]   = data[i+2]
+                dataRGB[idx+1] = data[i+1]
+                dataRGB[idx+2] = data[i]
+                idx = idx+3
+            }
+            // get usable pointer to image:
+            var pimage : UnsafeMutablePointer? = UnsafeMutablePointer(mutating: dataRGB)
+            // THNETS process image:
+            let nbatch: Int32 = 1
+            var results: UnsafeMutablePointer<Float>?
+            var outwidth: Int32 = 0
+            var outheight: Int32 = 0
+            embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0))
+            // convert results to array:
+            embedding = convert(count: Int(embeddingSize), data: results!)
+            
+            protos[0] = embedding
+            protoNumber = 0
+            print(embedding)
+        }
+        if defaults.object(forKey: "savedImage1") != nil {
+            let tempdata = defaults.object(forKey: "savedImage1") as! NSData
+            
+            let cropWidth = nnEyeSize
+            let cropHeight = nnEyeSize
+            let croppedScaledImage = UIImage(data: tempdata as Data) //Util.resizeImage(image: tempimage!, newWidth: CGFloat(nnEyeSize))
+            let pixelData = croppedScaledImage?.cgImage!.dataProvider!.data
+            let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+            /// convert BGRA to RGB:
+            var idx = 0
+            var dataRGB = [CUnsignedChar](repeating: 0, count: (nnEyeSize*nnEyeSize*3))
+            for i in stride(from:0, through: nnEyeSize*nnEyeSize*4-1, by: 4) { // every 4 values do this:
+                dataRGB[idx]   = data[i+2]
+                dataRGB[idx+1] = data[i+1]
+                dataRGB[idx+2] = data[i]
+                idx = idx+3
+            }
+            // get usable pointer to image:
+            var pimage : UnsafeMutablePointer? = UnsafeMutablePointer(mutating: dataRGB)
+            // THNETS process image:
+            let nbatch: Int32 = 1
+            var results: UnsafeMutablePointer<Float>?
+            var outwidth: Int32 = 0
+            var outheight: Int32 = 0
+            embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0))
+            // convert results to array:
+            embedding = convert(count: Int(embeddingSize), data: results!)
+            
+            protos[1] = embedding
+            protoNumber = 1
+            print(embedding)
+        }
+    }
+    
+    override func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
+        
+        //calculate fps
+        let methodStart = NSDate()
+        
+        let cropWidth = nnEyeSize
+        let cropHeight = nnEyeSize
+        let croppedScaledImage = Util.resizeImage(image: uiImage, newWidth: CGFloat(nnEyeSize))
+        let pixelData = croppedScaledImage?.cgImage!.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        /// convert BGRA to RGB:
+        var idx = 0
+        var dataRGB = [CUnsignedChar](repeating: 0, count: (nnEyeSize*nnEyeSize*3))
+        for i in stride(from:0, through: nnEyeSize*nnEyeSize*4-1, by: 4) { // every 4 values do this:
+            dataRGB[idx]   = data[i+2]
+            dataRGB[idx+1] = data[i+1]
+            dataRGB[idx+2] = data[i]
+            idx = idx+3
+        }
+        // get usable pointer to image:
+        var pimage : UnsafeMutablePointer? = UnsafeMutablePointer(mutating: dataRGB)
+        // THNETS process image:
+        let nbatch: Int32 = 1
+        var results: UnsafeMutablePointer<Float>?
+        var outwidth: Int32 = 0
+        var outheight: Int32 = 0
+        embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0));
+        // convert results to array:
+        embedding = convert(count: Int(embeddingSize), data: results!)
+        
+        // compute distace of camera view to protos:
+        var min:Float = 2.0
+        var max:Float = 0.0
+        var best:Int = -1
+        if protoNumber >= 0 {
+            for i in 0...protoNumber {
+                let d = distance(a:protos[i], b:embedding, embeddingSize: embeddingSize)
+                if (d > max) { max = d }
+                if (d < min) {
+                    best = i
+                    min = d
+                }
+            }
+        }
+        
+        // filter results by threshold:
+        let threshold:Float = 0.5
+        print("current best is \(best) min is \(min) , max is \(max), threshold is \(max*threshold)")
+        
+        let methodFinish = NSDate()
+        let executionTime = methodFinish.timeIntervalSince(methodStart as Date)
+        DispatchQueue.main.async {
+            [unowned self] in
+            self.delegate?.captured(image: uiImage)
+            self.delegate?.fps(time: executionTime)
+            
+            if (min < max*threshold) {
+                self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
+            } else {
+                self.delegate?.detection(info: "")
+            }
+        }
+    }
+}
+
+class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
+    
+    var idFrame : IdentifyFrame!
 
     @IBOutlet var playImageView: UIImageView!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var textLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        frameExtractor = FrameExtractor()
-        frameExtractor.delegate = self
+        idFrame = IdentifyFrame()
+        idFrame.delegate = self
 
     }
     
     func captured(image: UIImage) {
         playImageView.image =  image
+    }
+    func fps(time: Double) {
+        textLabel.text = "FPS: \(1/time)"
+    }
+    func detection(info: String) {
+        infoLabel.text = info
     }
     
     override func viewWillLayoutSubviews() {
