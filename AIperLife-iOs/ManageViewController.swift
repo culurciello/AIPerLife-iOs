@@ -13,13 +13,12 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet var tableView: UITableView!
     
-    @IBAction func deleteallPressed(_ sender: Any) {
-        
+    @IBAction func deleteAllPressed(_ sender: Any) {
         //Warning before deleting all data
         let alertController = UIAlertController(title: "Caution!", message: "You are about to erase all saved games. Do you wish to proceed?", preferredStyle: UIAlertControllerStyle.alert)
         let EraseAction = UIAlertAction(title: "Erase", style: UIAlertActionStyle.destructive) {
             (result : UIAlertAction) -> Void in
-
+            
             //remove all objects in realm
             let realm = try! Realm()
             try! realm.write {
@@ -43,8 +42,6 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
         alertController.addAction(EraseAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
-
-        
     }
     
     var testsaves = ["Save 1", "Save 2", "Save 3", "Save 4"]
