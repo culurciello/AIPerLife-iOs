@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
+
 
 protocol LearnFrameDelegate: class {
     func captured(image: UIImage)
@@ -28,7 +30,6 @@ class LearnFrame: FrameExtractor {
 class CreateViewController: UIViewController, LearnFrameDelegate {
 
     var lFrame : LearnFrame!
-    
     var item = 0
     
     @IBOutlet var imageView: UIImageView!
@@ -37,18 +38,33 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
         let defaults = UserDefaults.standard
         let image = Util.resizeImage(image: imageView.image!, newWidth: 128)
         
-        if item == 0 {
+        //Prompt to enter hint
+        var hintField: UITextField!
+        func configurationTextField(textField: UITextField!)
+        {
+            //Alert Configuration
+            textField.placeholder = "Enter here!"
+            hintField = textField
+        }
+        func handleCancel(alertView: UIAlertAction!)
+        {
+            //cancel text input and cancel learning
+            print("Cancelled !!")
+        }
+        //Create Alert
+        let alert = UIAlertController(title: "Enter Hint", message: "", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: configurationTextField)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:handleCancel))
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler:{ (UIAlertAction) in
             //save image
             let imageData:NSData = UIImagePNGRepresentation(image!)! as NSData
-            defaults.set(imageData, forKey: "savedImage" + String(0))
-            print("Current scene saved!")
-            item = 1
-        } else {
-            let imageData:NSData = UIImagePNGRepresentation(image!)! as NSData
-            defaults.set(imageData, forKey: "savedImage" + String(1))
-            print("Current scene saved!")
-            item = 2
-        }
+            defaults.set(imageData, forKey: "savedImage" + String(self.item))
+            print("item \(self.item+1) saved!")
+            self.item += 1
+            //print for debugging
+            print("Item : \(hintField.text)")
+        }))
+        self.present(alert, animated: true, completion: { print("completed saving") })
     }
     
     override func viewDidLoad() {
