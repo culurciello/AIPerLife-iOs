@@ -31,6 +31,10 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
 
     var lFrame : LearnFrame!
     var item = 0
+    let realm = try! Realm()
+    
+    //create a test realm object
+    let testingData = SaveData(title: NSUUID().uuidString)
     
     @IBOutlet var imageView: UIImageView!
     
@@ -57,14 +61,25 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:handleCancel))
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler:{ (UIAlertAction) in
             //save image
+            let myObj = Treasure()
             let imageData:NSData = UIImagePNGRepresentation(image!)! as NSData
-            defaults.set(imageData, forKey: "savedImage" + String(self.item))
-            print("item \(self.item+1) saved!")
+            myObj.order = self.item
+            myObj.hint = hintField.text!
+            //use the unique ID for each treasure object as key
+            defaults.set(imageData, forKey: myObj.objID)
+            try! self.realm.write {
+                //write object into realm
+                self.realm.add(myObj)
+                //update meta data
+                self.testingData.objList.append(myObj)
+                self.testingData.numObj = self.testingData.objList.count
+            }
+
             self.item += 1
-            //print for debugging
-            print("Item : \(hintField.text)")
         }))
-        self.present(alert, animated: true, completion: { print("completed saving") })
+        self.present(alert, animated: true, completion: {
+            print("saving item \(self.item+1)")
+        })
     }
     
     override func viewDidLoad() {
@@ -73,6 +88,10 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
         // Do any additional setup after loading the view.
         lFrame = LearnFrame()
         lFrame.delegate = self
+        
+        try! realm.write {
+            realm.add(testingData, update: true)
+        }
     }
     
     func captured(image: UIImage) {
@@ -96,5 +115,10 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
             imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
             break
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.lFrame.captureSession.stopRunning()
     }
 }

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var confirmView: UIView!
     @IBOutlet var confirmLabel: UILabel!
+    
+    let realm = try! Realm()
     
     @IBAction func LoadButton(_ sender: Any) {
         print("Loading Game")
@@ -27,8 +30,6 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.confirmView.alpha = 0
         })
     }
-
-    var testsaves = ["Save 1", "Save 2", "Save 3", "Save 4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +44,27 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testsaves.count
+        //let someDogs = realm.objects(Dog.self).filter("name contains 'Fido'")
+        return realm.objects(SaveData.self).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        cell.textLabel!.text = self.testsaves[indexPath.row]
+        let resultArray = realm.objects(SaveData.self)
+        cell.textLabel!.text = resultArray[indexPath.row].title
         return cell
     }
     
     //Action on click
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Clicked on \(testsaves[indexPath.row])")
         
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.confirmView.alpha = 1.0
         })
+        let resultArray = realm.objects(SaveData.self)
         
-        confirmLabel.text = "\(testsaves[indexPath.row]) selected, There are XXX objects to be found... Are you ready for the adventure?"
+        confirmLabel.text = "\(resultArray[indexPath.row].title) selected, There are \(resultArray[indexPath.row].objList.count) objects to be found... Are you ready for the adventure?"
     }
 }

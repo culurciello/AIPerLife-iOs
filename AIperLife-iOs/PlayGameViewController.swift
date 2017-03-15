@@ -102,7 +102,6 @@ class IdentifyFrame: FrameExtractor {
             
             protos[0] = embedding
             protoNumber = 0
-            print(embedding)
         }
         if defaults.object(forKey: "savedImage1") != nil {
             let tempdata = defaults.object(forKey: "savedImage1") as! NSData
@@ -134,7 +133,6 @@ class IdentifyFrame: FrameExtractor {
             
             protos[1] = embedding
             protoNumber = 1
-            print(embedding)
         }
     }
     
@@ -186,8 +184,6 @@ class IdentifyFrame: FrameExtractor {
         
         // filter results by threshold:
         let threshold:Float = 0.5
-        print("current best is \(best) min is \(min) , max is \(max), threshold is \(max*threshold)")
-        
         let methodFinish = NSDate()
         let executionTime = methodFinish.timeIntervalSince(methodStart as Date)
         DispatchQueue.main.async {
