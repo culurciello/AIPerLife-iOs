@@ -11,6 +11,9 @@ import RealmSwift
 
 class ManageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    let realm = try! Realm()
+    let defaults = UserDefaults.standard
+    
     @IBOutlet var tableView: UITableView!
     
     @IBAction func deleteAllPressed(_ sender: Any) {
@@ -20,19 +23,16 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
             (result : UIAlertAction) -> Void in
             
             //remove all objects in realm
-            let realm = try! Realm()
-            try! realm.write {
+            try! self.realm.write {
                 print("deleting all items in realm")
-                realm.deleteAll()
+                self.realm.deleteAll()
             }
             
             //remove all object in test saves
-            self.testsaves.removeAll()
             self.tableView.reloadData()
             
             //remove all UserDefaults
-            let defaults = UserDefaults.standard
-            defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+            self.defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         }
         let cancelAction = UIAlertAction(title: "cancel", style: UIAlertActionStyle.default) {
             (result : UIAlertAction) -> Void in
@@ -44,8 +44,6 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
         self.present(alertController, animated: true, completion: nil)
     }
     
-    var testsaves = ["Save 1", "Save 2", "Save 3", "Save 4"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,22 +53,32 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testsaves.count
+        return realm.objects(SaveData.self).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.selectionStyle = .none
-        cell.textLabel!.text = self.testsaves[indexPath.row]
+        let resultArray = realm.objects(SaveData.self)
+        cell.textLabel!.text = resultArray[indexPath.row].title
         return cell
     }
     
     //Swipe to delete individual entry
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("delete")
-            //Perform relevant delete functions
-            self.testsaves.remove(at: indexPath.row)
+            let deleteObj = realm.objects(SaveData.self)[indexPath.row]
+            let deleteList = deleteObj.objList
+            print("deleting \(deleteObj.title) with \(deleteList.count) objects")
+            //remove image data stored with userdefault
+            for idx in deleteList {
+                self.defaults.removeObject(forKey: idx.objID)
+            }
+            //remove realm data
+            try! self.realm.write{
+                self.realm.delete(deleteList)
+                self.realm.delete(deleteObj)
+            }
             //update tableview
             self.tableView.reloadData()
         }

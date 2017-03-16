@@ -339,7 +339,8 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Manage" id="bCZ-qy-52j">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="dgm-lM-iXo">
+                        <barButtonItem key="rightBarButtonItem" title="Delete All" id="dgm-lM-iXo">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="deleteAllPressed:" destination="Qjc-Rz-gvs" id="LCh-LV-vZR"/>
                             </connections>
