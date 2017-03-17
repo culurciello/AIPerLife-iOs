@@ -64,7 +64,12 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.confirmView.alpha = 1.0
         })
         let resultArray = realm.objects(SaveData.self)
-        
         confirmLabel.text = "\(resultArray[indexPath.row].title) selected, There are \(resultArray[indexPath.row].objList.count) objects to be found... Are you ready for the adventure?"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PlayGameViewController{
+                destination.selectSave = tableView.indexPathForSelectedRow!.row
+        }
     }
 }

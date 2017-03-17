@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 
 /*
@@ -23,7 +24,6 @@ class IdentifyFrame: FrameExtractor {
     
     weak var delegate: IdentifyFrameDelegate?
     
-    
     // THNETS neural network loading and initalization:
     let nnEyeSize = 128
     var embeddingSize:Int32 = 0 // network embedding size returned by THNETS
@@ -35,9 +35,12 @@ class IdentifyFrame: FrameExtractor {
     var protoNumber:Int = -1
     var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
     var embedding:[Float] = []
-    var protoString:[String] = ["1", "2", "3", "4", "5"]
     
-    override init() {
+    //TODO update the protoString with data in realm
+    //var protoString:[String] = ["1", "2", "3", "4", "5"]
+    var protoString:[String] = []
+    
+    init(selectSave: Int) {
         super.init()
 
         THInit()
@@ -70,13 +73,22 @@ class IdentifyFrame: FrameExtractor {
             THUseSpatialConvolutionMM(net, 2)
         }
         
+        // Opeartion on saves
         let defaults = UserDefaults.standard
-        if defaults.object(forKey: "savedImage0") != nil {
-            let tempdata = defaults.object(forKey: "savedImage0") as! NSData
-            //let tempimage = UIImage(data: tempdata as Data)
-            
-            let cropWidth = nnEyeSize
-            let cropHeight = nnEyeSize
+        let realm = try! Realm()
+        
+        let cropWidth = nnEyeSize
+        let cropHeight = nnEyeSize
+        
+        // Get the correct save file
+        let result = realm.objects(SaveData.self)[0]
+        // Loop through the content
+        let objList = result.objList
+        for item in objList {
+            // Save Hints
+            protoString.append(item.hint)
+            // Transform String back to Image
+            let tempdata = defaults.object(forKey: item.objID) as! NSData
             let croppedScaledImage = UIImage(data: tempdata as Data) //Util.resizeImage(image: tempimage!, newWidth: CGFloat(nnEyeSize))
             let pixelData = croppedScaledImage?.cgImage!.dataProvider!.data
             let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
@@ -99,41 +111,9 @@ class IdentifyFrame: FrameExtractor {
             embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0))
             // convert results to array:
             embedding = convert(count: Int(embeddingSize), data: results!)
-            
-            protos[0] = embedding
-            protoNumber = 0
+            protos[item.order] = embedding
         }
-        if defaults.object(forKey: "savedImage1") != nil {
-            let tempdata = defaults.object(forKey: "savedImage1") as! NSData
-            
-            let cropWidth = nnEyeSize
-            let cropHeight = nnEyeSize
-            let croppedScaledImage = UIImage(data: tempdata as Data) //Util.resizeImage(image: tempimage!, newWidth: CGFloat(nnEyeSize))
-            let pixelData = croppedScaledImage?.cgImage!.dataProvider!.data
-            let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-            /// convert BGRA to RGB:
-            var idx = 0
-            var dataRGB = [CUnsignedChar](repeating: 0, count: (nnEyeSize*nnEyeSize*3))
-            for i in stride(from:0, through: nnEyeSize*nnEyeSize*4-1, by: 4) { // every 4 values do this:
-                dataRGB[idx]   = data[i+2]
-                dataRGB[idx+1] = data[i+1]
-                dataRGB[idx+2] = data[i]
-                idx = idx+3
-            }
-            // get usable pointer to image:
-            var pimage : UnsafeMutablePointer? = UnsafeMutablePointer(mutating: dataRGB)
-            // THNETS process image:
-            let nbatch: Int32 = 1
-            var results: UnsafeMutablePointer<Float>?
-            var outwidth: Int32 = 0
-            var outheight: Int32 = 0
-            embeddingSize = THProcessImages(net, &pimage, nbatch, Int32(cropWidth), Int32(cropHeight), Int32(3*cropWidth), &results, &outwidth, &outheight, Int32(0))
-            // convert results to array:
-            embedding = convert(count: Int(embeddingSize), data: results!)
-            
-            protos[1] = embedding
-            protoNumber = 1
-        }
+        protoNumber = result.numObj-1
     }
     
     override func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
@@ -192,7 +172,8 @@ class IdentifyFrame: FrameExtractor {
             self.delegate?.fps(time: executionTime)
             
             if (min < max*threshold) {
-                self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
+                //self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
+                self.delegate?.detection(info: self.protoString[best])
             } else {
                 self.delegate?.detection(info: "")
             }
@@ -208,10 +189,12 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var textLabel: UILabel!
     
+    var selectSave = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idFrame = IdentifyFrame()
+        idFrame = IdentifyFrame(selectSave: selectSave)
         idFrame.delegate = self
 
     }

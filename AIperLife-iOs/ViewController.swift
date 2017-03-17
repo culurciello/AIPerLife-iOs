@@ -265,7 +265,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         }
         
         //save items
-        let save = SaveData(title: "test", numObj: (protoNumber+1))
+        let save = SaveData(title: "test")
         try! realm.write {
             realm.add(save)
         }
