@@ -69,7 +69,8 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PlayGameViewController{
-                destination.selectSave = tableView.indexPathForSelectedRow!.row
+            destination.selectSave = tableView.indexPathForSelectedRow!.row
+            print("Row Selected \(tableView.indexPathForSelectedRow!.row)")
         }
     }
 }

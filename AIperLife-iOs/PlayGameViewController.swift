@@ -81,12 +81,13 @@ class IdentifyFrame: FrameExtractor {
         let cropHeight = nnEyeSize
         
         // Get the correct save file
-        let result = realm.objects(SaveData.self)[0]
+        let result = realm.objects(SaveData.self)[selectSave]
         // Loop through the content
         let objList = result.objList
         for item in objList {
             // Save Hints
             protoString.append(item.hint)
+            print("appended \(item.hint) at protoString \(protoString.count-1)")
             // Transform String back to Image
             let tempdata = defaults.object(forKey: item.objID) as! NSData
             let croppedScaledImage = UIImage(data: tempdata as Data) //Util.resizeImage(image: tempimage!, newWidth: CGFloat(nnEyeSize))
@@ -226,5 +227,9 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
                 playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
                 break
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.idFrame.captureSession.stopRunning()
     }
 }
