@@ -17,7 +17,6 @@ import AVFoundation
 class FrameExtractor: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     //weak var delegate: FrameExtractorDelegate?
-    
     private let position = AVCaptureDevicePosition.back
     private let quality = AVCaptureSessionPresetMedium
     

@@ -34,9 +34,12 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
     let realm = try! Realm()
     
     //create a test realm object
-    let testingData = SaveData(title: NSUUID().uuidString)
+    let testingData = SaveData(title: "Unnamed Save")
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var summaryView: UIView!
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var descField: UITextField!
     
     @IBAction func learnPressed(_ sender: Any) {
         let defaults = UserDefaults.standard
@@ -89,13 +92,33 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
         lFrame = LearnFrame()
         lFrame.delegate = self
         
+        summaryView.alpha = 0
+        titleField.placeholder = "Enter Title..."
+        descField.placeholder = "Enter brief description for your save..."
         try! realm.write {
-            realm.add(testingData, update: true)
+            //realm.add(testingData, update: true)
         }
+        
+        //setup save button
+        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateViewController.saveBack(sender:)))
     }
     
     func captured(image: UIImage) {
         imageView.image = image
+    }
+    
+    //save and back
+    func saveBack(sender: UIBarButtonItem) {
+        // Perform your custom actions
+        summaryView.alpha = 1
+        self.testingData.title = titleField.text
+        self.testingData.desc = descField.text
+        try! self.realm.write {
+            realm.add(testingData, update: true)
+        }
+        print("saved and back")
+        // Go back to the previous ViewController
+        //_ = navigationController?.popViewController(animated: true)
     }
     
     override func viewWillLayoutSubviews() {
