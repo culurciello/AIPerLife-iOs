@@ -14,15 +14,13 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     @IBOutlet var confirmView: UIView!
     @IBOutlet var confirmLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     
     let realm = try! Realm()
     
     @IBAction func LoadButton(_ sender: Any) {
         print("Loading Game")
-        
-        //do all the load game opeations
     }
-    
     
     @IBAction func cancelButton(_ sender: Any) {
         print("Regret Decision!")
@@ -33,9 +31,10 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         confirmView.alpha = 0
+        titleLabel.text = "No title"
+        confirmLabel.text = "No description available"
         print("load view loaded")
         
         self.tableView.dataSource = self
@@ -44,12 +43,10 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //let someDogs = realm.objects(Dog.self).filter("name contains 'Fido'")
         return realm.objects(SaveData.self).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell()
         cell.selectionStyle = .none
         let resultArray = realm.objects(SaveData.self)
@@ -64,7 +61,12 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.confirmView.alpha = 1.0
         })
         let resultArray = realm.objects(SaveData.self)
-        confirmLabel.text = "\(resultArray[indexPath.row].title) selected, There are \(resultArray[indexPath.row].objList.count) objects to be found... Are you ready for the adventure?"
+        if let saveTitle = resultArray[indexPath.row].title {
+            titleLabel.text = saveTitle
+        }
+        if let saveDesc = resultArray[indexPath.row].desc {
+            confirmLabel.text = "\(saveDesc). There are \(resultArray[indexPath.row].objList.count) objects to be found... Are you ready for the adventure?"
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

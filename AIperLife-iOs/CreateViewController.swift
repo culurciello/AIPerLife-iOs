@@ -27,7 +27,7 @@ class LearnFrame: FrameExtractor {
     }
 }
 
-class CreateViewController: UIViewController, LearnFrameDelegate {
+class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDelegate {
 
     var lFrame : LearnFrame!
     var item = 0
@@ -40,6 +40,7 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descField: UITextField!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
     @IBAction func learnPressed(_ sender: Any) {
         let defaults = UserDefaults.standard
@@ -77,8 +78,11 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
                 self.testingData.objList.append(myObj)
                 self.testingData.numObj = self.testingData.objList.count
             }
-
             self.item += 1
+            //enable saving after 2 objects learned
+            if(self.item > 1) {
+                self.saveButton.isEnabled = true
+            }
         }))
         self.present(alert, animated: true, completion: {
             print("saving item \(self.item+1)")
@@ -91,34 +95,33 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
         // Do any additional setup after loading the view.
         lFrame = LearnFrame()
         lFrame.delegate = self
+        self.titleField.delegate = self
+        self.descField.delegate = self
         
+        saveButton.isEnabled = false
         summaryView.alpha = 0
         titleField.placeholder = "Enter Title..."
         descField.placeholder = "Enter brief description for your save..."
-        try! realm.write {
-            //realm.add(testingData, update: true)
-        }
-        
-        //setup save button
-        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateViewController.saveBack(sender:)))
     }
     
     func captured(image: UIImage) {
         imageView.image = image
     }
     
-    //save and back
-    func saveBack(sender: UIBarButtonItem) {
-        // Perform your custom actions
+    @IBAction func savePressed(_ sender: Any) {
+        //setup save summary
         summaryView.alpha = 1
+        
+    }
+    @IBAction func confirmPressed(_ sender: Any) {
+        //save to realm
         self.testingData.title = titleField.text
         self.testingData.desc = descField.text
         try! self.realm.write {
             realm.add(testingData, update: true)
         }
-        print("saved and back")
-        // Go back to the previous ViewController
-        //_ = navigationController?.popViewController(animated: true)
+        //return to main menu
+        _ = navigationController?.popViewController(animated: true)
     }
     
     override func viewWillLayoutSubviews() {
@@ -143,5 +146,16 @@ class CreateViewController: UIViewController, LearnFrameDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.lFrame.captureSession.stopRunning()
+    }
+    
+    //Hide keyboard when end editing and press return
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        titleField.resignFirstResponder()
+        descField.resignFirstResponder()
+        return true
     }
 }
