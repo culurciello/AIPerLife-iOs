@@ -36,8 +36,6 @@ class IdentifyFrame: FrameExtractor {
     var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
     var embedding:[Float] = []
     
-    //TODO update the protoString with data in realm
-    //var protoString:[String] = ["1", "2", "3", "4", "5"]
     var protoString:[String] = []
     
     init(selectSave: Int) {
