@@ -23,12 +23,13 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func cancelButton(_ sender: Any) {
-        titleLabel.text = "No title"
-        confirmLabel.text = "No description available"
         print("Regret Decision!")
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.confirmView.alpha = 0
-        })
+        }) { (true) in
+            self.titleLabel.text = "No title"
+            self.confirmLabel.text = "No description available"
+        }
     }
     
     override func viewDidLoad() {
