@@ -183,6 +183,7 @@ class IdentifyFrame: FrameExtractor {
 class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     
     var idFrame : IdentifyFrame!
+    var progressLauncher : ProgressLauncher!
 
     @IBOutlet var playImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
@@ -195,6 +196,8 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         
         idFrame = IdentifyFrame(selectSave: selectSave)
         idFrame.delegate = self
+        
+        progressLauncher = ProgressLauncher(selectSave: selectSave)
 
     }
     
@@ -208,6 +211,13 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         infoLabel.text = info
     }
     
+    
+    @IBAction func progressPressed(_ sender: Any) {
+        progressLauncher.showProgress()
+    }
+
+    
+
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         

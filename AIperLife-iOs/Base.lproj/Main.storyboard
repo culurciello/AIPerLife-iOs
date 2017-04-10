@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="-297" y="448"/>
         </scene>
-        <!--Play Game View Controller-->
+        <!--Title-->
         <scene sceneID="Cs9-zZ-iLJ">
             <objects>
                 <viewController id="2wy-mi-BAz" customClass="PlayGameViewController" customModule="AIperLife_iOs" sceneMemberID="viewController">
@@ -116,6 +116,14 @@
                             <constraint firstItem="KCb-Z5-34A" firstAttribute="centerY" secondItem="J58-q1-93h" secondAttribute="centerY" id="u2A-Gw-jQv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="q1N-Co-zkl">
+                        <barButtonItem key="rightBarButtonItem" image="list" id="IvN-la-rMO">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="progressPressed:" destination="2wy-mi-BAz" id="45T-4R-Pvn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="infoLabel" destination="KCb-Z5-34A" id="eBM-1o-3tr"/>
                         <outlet property="playImageView" destination="U5s-tW-MOZ" id="a48-gf-fRd"/>
@@ -520,5 +528,6 @@
         <image name="button_create" width="200" height="50"/>
         <image name="button_manage" width="200" height="50"/>
         <image name="button_play" width="200" height="50"/>
+        <image name="list" width="48" height="48"/>
     </resources>
 </document>
