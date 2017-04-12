@@ -28,7 +28,9 @@ class ProgressCell: BaseCell {
     var setting: Progress? {
         didSet {
             nameLabel.text = setting?.name
-            
+            if let imageName = setting?.imageName {
+                iconImageView.image = UIImage(named: imageName)
+            }
         }
     }
     

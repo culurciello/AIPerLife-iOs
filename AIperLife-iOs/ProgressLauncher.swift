@@ -31,9 +31,9 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }()
     
     let cellId = "cellId"
+    let cellHeight: CGFloat = 50
     
     let realm = try! Realm()
-    
     var numObj = 0
     var progress: [Progress] = []
     
@@ -45,7 +45,7 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             window.addSubview(maskView)
             window.addSubview(collectionView)
             
-            let height: CGFloat = 200
+            let height: CGFloat = 250
             let y = window.frame.height - height
             collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             
@@ -83,7 +83,7 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: 50)
+        return CGSize(width: self.collectionView.frame.width, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
