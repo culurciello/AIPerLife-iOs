@@ -25,6 +25,13 @@ class BaseCell: UICollectionViewCell {
 
 class ProgressCell: BaseCell {
     
+    var setting: Progress? {
+        didSet {
+            nameLabel.text = setting?.name
+            
+        }
+    }
+    
     let nameLabel : UILabel = {
         let label = UILabel()
         label.text = "Setting"
