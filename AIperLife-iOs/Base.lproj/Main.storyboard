@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rO6-x4-QMY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rO6-x4-QMY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bl2-Is-cPg">
-                                <rect key="frame" x="88" y="251" width="200" height="50"/>
+                                <rect key="frame" x="24" y="401" width="200" height="50"/>
                                 <state key="normal" image="button_play"/>
                                 <connections>
                                     <action selector="playPressed:" destination="Zg2-yl-Rg1" eventType="touchUpInside" id="GYo-Qk-k1s"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssp-ti-Sft">
-                                <rect key="frame" x="88" y="309" width="200" height="50"/>
+                                <rect key="frame" x="24" y="459" width="200" height="50"/>
                                 <state key="normal" image="button_create"/>
                                 <connections>
                                     <action selector="createPressed:" destination="Zg2-yl-Rg1" eventType="touchUpInside" id="JsN-P9-8GC"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-yq-ygC">
-                                <rect key="frame" x="88" y="367" width="200" height="50"/>
+                                <rect key="frame" x="24" y="517" width="200" height="50"/>
                                 <state key="normal" image="button_manage"/>
                                 <connections>
                                     <action selector="loadPressed:" destination="Zg2-yl-Rg1" eventType="touchUpInside" id="P9s-bE-dUM"/>
@@ -59,14 +59,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ssp-ti-Sft" firstAttribute="centerY" secondItem="5Gx-86-Qdy" secondAttribute="centerY" id="BtV-fm-Bbg"/>
-                            <constraint firstItem="ssp-ti-Sft" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="Iee-uc-Nnu"/>
-                            <constraint firstItem="ta8-yq-ygC" firstAttribute="top" secondItem="ssp-ti-Sft" secondAttribute="bottom" constant="8" id="Pid-9a-KWR"/>
-                            <constraint firstItem="ta8-yq-ygC" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="W9X-Rh-i8X"/>
+                            <constraint firstItem="ssp-ti-Sft" firstAttribute="top" secondItem="bl2-Is-cPg" secondAttribute="bottom" constant="8" id="0XE-Ka-dg2"/>
+                            <constraint firstItem="neN-Pn-dwH" firstAttribute="top" secondItem="ta8-yq-ygC" secondAttribute="bottom" constant="100" id="ABY-zd-zsw"/>
+                            <constraint firstItem="ssp-ti-Sft" firstAttribute="leading" secondItem="5Gx-86-Qdy" secondAttribute="leadingMargin" constant="8" id="F5W-6J-uky"/>
                             <constraint firstItem="neN-Pn-dwH" firstAttribute="top" secondItem="eud-yo-7dj" secondAttribute="bottom" constant="8" id="jt6-ID-d52"/>
                             <constraint firstItem="eud-yo-7dj" firstAttribute="trailing" secondItem="5Gx-86-Qdy" secondAttribute="trailingMargin" constant="8" id="law-pc-Mxp"/>
-                            <constraint firstItem="bl2-Is-cPg" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="tNb-eX-RkU"/>
-                            <constraint firstItem="ssp-ti-Sft" firstAttribute="top" secondItem="bl2-Is-cPg" secondAttribute="bottom" constant="8" id="wco-SE-PQY"/>
+                            <constraint firstItem="ta8-yq-ygC" firstAttribute="top" secondItem="ssp-ti-Sft" secondAttribute="bottom" constant="8" id="mDs-HJ-dej"/>
+                            <constraint firstItem="ta8-yq-ygC" firstAttribute="leading" secondItem="5Gx-86-Qdy" secondAttribute="leadingMargin" constant="8" id="s34-TT-bBo"/>
+                            <constraint firstItem="bl2-Is-cPg" firstAttribute="leading" secondItem="5Gx-86-Qdy" secondAttribute="leadingMargin" constant="8" id="xta-s4-lWY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Main Menu" id="aOX-VD-Wvj"/>
@@ -539,7 +539,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera_button" width="512" height="512"/>
+        <image name="Camera_button" width="100" height="100"/>
         <image name="button_create" width="200" height="50"/>
         <image name="button_manage" width="200" height="50"/>
         <image name="button_play" width="200" height="50"/>

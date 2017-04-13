@@ -18,6 +18,7 @@ protocol IdentifyFrameDelegate: class {
     func captured(image: UIImage)
     func fps(time: Double)
     func detection(info: String, found: Bool, numItem: Int)
+//    func detection(info: String)
 }
 
 class IdentifyFrame: FrameExtractor {
@@ -171,10 +172,11 @@ class IdentifyFrame: FrameExtractor {
             self.delegate?.fps(time: executionTime)
             
             if (min < max*threshold) {
-                //self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
                 self.delegate?.detection(info: self.protoString[best], found: true, numItem: best)
+//                self.delegate?.detection(info: self.protoString[best])
             } else {
                 self.delegate?.detection(info: "", found: false, numItem: 0)
+//                self.delegate?.detection(info: "")
             }
         }
     }
@@ -208,6 +210,7 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         textLabel.text = "FPS: \(1/time)"
     }
     func detection(info: String, found: Bool, numItem: Int) {
+//    func detection(info: String) {
         infoLabel.text = info
         if found {
             progressLauncher.updateProgress(item: numItem)
@@ -240,7 +243,7 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

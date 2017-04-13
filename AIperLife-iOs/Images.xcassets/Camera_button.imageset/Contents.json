@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Camera_button.png",
+      "filename" : "Camera_button_100x100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Camera_button_200x200.png",
       "scale" : "2x"
     },
     {

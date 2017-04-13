@@ -34,6 +34,15 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let bgImageName = "Robot"
+        let bgImage = UIImage(named: bgImageName)
+        let bgImageView = UIImageView(image: bgImage)
+        
+        bgImageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        view.addSubview(bgImageView)
+        view.sendSubview(toBack: bgImageView)
+        
         //Loading Animation
         loadAnim.showAnimation()
         

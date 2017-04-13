@@ -82,10 +82,12 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //navigation bar manipulation
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

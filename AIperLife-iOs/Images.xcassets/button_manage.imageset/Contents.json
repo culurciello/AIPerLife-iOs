@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "button_manage.png",
+      "filename" : "Button_Manage_200x50.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Button_Manage_400x100.png",
       "scale" : "2x"
     },
     {
