@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rO6-x4-QMY">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rO6-x4-QMY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -46,6 +46,16 @@
                                     <segue destination="Qjc-Rz-gvs" kind="show" id="Md6-5V-6XU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© FWDNXT 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eud-yo-7dj">
+                                <rect key="frame" x="242" y="638" width="125" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ock-n3-r3H"/>
+                                    <constraint firstAttribute="width" constant="125" id="vOu-4u-FAZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,6 +63,8 @@
                             <constraint firstItem="ssp-ti-Sft" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="Iee-uc-Nnu"/>
                             <constraint firstItem="ta8-yq-ygC" firstAttribute="top" secondItem="ssp-ti-Sft" secondAttribute="bottom" constant="8" id="Pid-9a-KWR"/>
                             <constraint firstItem="ta8-yq-ygC" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="W9X-Rh-i8X"/>
+                            <constraint firstItem="neN-Pn-dwH" firstAttribute="top" secondItem="eud-yo-7dj" secondAttribute="bottom" constant="8" id="jt6-ID-d52"/>
+                            <constraint firstItem="eud-yo-7dj" firstAttribute="trailing" secondItem="5Gx-86-Qdy" secondAttribute="trailingMargin" constant="8" id="law-pc-Mxp"/>
                             <constraint firstItem="bl2-Is-cPg" firstAttribute="centerX" secondItem="5Gx-86-Qdy" secondAttribute="centerX" id="tNb-eX-RkU"/>
                             <constraint firstItem="ssp-ti-Sft" firstAttribute="top" secondItem="bl2-Is-cPg" secondAttribute="bottom" constant="8" id="wco-SE-PQY"/>
                         </constraints>
@@ -286,14 +298,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1BG-AD-CNO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pA-Mg-q70">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pA-Mg-q70">
                                 <rect key="frame" x="137" y="283" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="kDE-tR-WIG"/>
                                     <constraint firstAttribute="height" constant="100" id="rG8-EC-ulY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Learn">
+                                <state key="normal" image="Camera_button">
                                     <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -528,6 +539,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Camera_button" width="512" height="512"/>
         <image name="button_create" width="200" height="50"/>
         <image name="button_manage" width="200" height="50"/>
         <image name="button_play" width="200" height="50"/>

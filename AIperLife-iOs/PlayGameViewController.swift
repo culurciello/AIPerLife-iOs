@@ -17,7 +17,7 @@ import RealmSwift
 protocol IdentifyFrameDelegate: class {
     func captured(image: UIImage)
     func fps(time: Double)
-    func detection(info: String)
+    func detection(info: String, found: Bool, numItem: Int)
 }
 
 class IdentifyFrame: FrameExtractor {
@@ -172,9 +172,9 @@ class IdentifyFrame: FrameExtractor {
             
             if (min < max*threshold) {
                 //self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
-                self.delegate?.detection(info: self.protoString[best])
+                self.delegate?.detection(info: self.protoString[best], found: true, numItem: best)
             } else {
-                self.delegate?.detection(info: "")
+                self.delegate?.detection(info: "", found: false, numItem: 0)
             }
         }
     }
@@ -207,8 +207,11 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     func fps(time: Double) {
         textLabel.text = "FPS: \(1/time)"
     }
-    func detection(info: String) {
+    func detection(info: String, found: Bool, numItem: Int) {
         infoLabel.text = info
+        if found {
+            progressLauncher.updateProgress(item: numItem)
+        }
     }
     
     
@@ -235,6 +238,9 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
                 playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
                 break
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

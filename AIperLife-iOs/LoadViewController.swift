@@ -35,6 +35,7 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         confirmView.alpha = 0
         titleLabel.text = "No title"
         confirmLabel.text = "No description available"
@@ -77,5 +78,14 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destination.selectSave = tableView.indexPathForSelectedRow!.row
             print("Row Selected \(tableView.indexPathForSelectedRow!.row)")
         }
+    }
+    
+    //navigation bar manipulation
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

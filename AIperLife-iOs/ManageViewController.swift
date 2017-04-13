@@ -83,4 +83,13 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableView.reloadData()
         }
      }
+    
+    //navigation bar manipulation
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 }

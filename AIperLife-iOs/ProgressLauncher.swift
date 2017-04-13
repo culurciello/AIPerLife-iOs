@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class Progress: NSObject {
-    let name: String
-    let imageName: String
+    var name: String
+    var imageName: String
     
     init(name: String, imageName: String) {
         self.name = name
@@ -104,6 +104,9 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         for item in objList {
             progress.append(Progress(name: item.hint, imageName: "not_found"))
         }
-        
+    }
+    
+    func updateProgress(item: Int) {
+        progress[item].imageName = "found"
     }
 }

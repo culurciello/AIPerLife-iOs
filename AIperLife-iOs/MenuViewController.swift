@@ -15,6 +15,8 @@ class MenuViewController: UIViewController {
     @IBOutlet var createButton: UIButton!
     @IBOutlet var loadButton: UIButton!
     
+    let loadAnim = LoadingAnimator()
+    
     //Proceed to play game
     @IBAction func playPressed(_ sender: Any) {
         print("play button pressed")
@@ -32,8 +34,10 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        print("menu loaded")
+        //Loading Animation
+        loadAnim.showAnimation()
+        
+        //Hide navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

@@ -14,6 +14,7 @@
 		86A1FE5D1E77991400979F6B /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A1FE5C1E77991400979F6B /* CreateViewController.swift */; };
 		86DA92051E9C2AB800D1F23E /* ProgressLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA92041E9C2AB800D1F23E /* ProgressLauncher.swift */; };
 		86DA92071E9C2B9400D1F23E /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA92061E9C2B9400D1F23E /* Cells.swift */; };
+		86DA92131E9FE5BF00D1F23E /* LoadAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DA92121E9FE5BF00D1F23E /* LoadAnimator.swift */; };
 		86F1F4761E6BBE7F00DCCAB4 /* aux.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */; };
 		86F1F4771E6BBE7F00DCCAB4 /* categories.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4711E6BBE7F00DCCAB4 /* categories.txt */; };
 		86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */ = {isa = PBXBuildFile; fileRef = 86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */; };
@@ -68,6 +69,7 @@
 		86A1FE5C1E77991400979F6B /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		86DA92041E9C2AB800D1F23E /* ProgressLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLauncher.swift; sourceTree = "<group>"; };
 		86DA92061E9C2B9400D1F23E /* Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		86DA92121E9FE5BF00D1F23E /* LoadAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadAnimator.swift; sourceTree = "<group>"; };
 		86F1F4701E6BBE7F00DCCAB4 /* aux.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = aux.t7; sourceTree = "<group>"; };
 		86F1F4711E6BBE7F00DCCAB4 /* categories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = categories.txt; sourceTree = "<group>"; };
 		86F1F4721E6BBE7F00DCCAB4 /* classes.t7 */ = {isa = PBXFileReference; lastKnownFileType = file; path = classes.t7; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				86A1FE5C1E77991400979F6B /* CreateViewController.swift */,
 				86DA92041E9C2AB800D1F23E /* ProgressLauncher.swift */,
 				86DA92061E9C2B9400D1F23E /* Cells.swift */,
+				86DA92121E9FE5BF00D1F23E /* LoadAnimator.swift */,
 			);
 			path = "AIperLife-iOs";
 			sourceTree = "<group>";
