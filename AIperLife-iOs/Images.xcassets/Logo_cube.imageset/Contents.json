@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Button_Create_200x50.png",
+      "filename" : "Logo_cube_black_100x100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Button_Create_400x100.png",
+      "filename" : "Logo_cube_black_200x200.png",
       "scale" : "2x"
     },
     {

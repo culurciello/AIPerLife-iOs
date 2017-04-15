@@ -24,14 +24,18 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func cancelButton(_ sender: Any) {
         print("Regret Decision!")
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.confirmView.alpha = 0
-        })
+        }) { (true) in
+            self.titleLabel.text = "No title"
+            self.confirmLabel.text = "No description available"
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         confirmView.alpha = 0
         titleLabel.text = "No title"
         confirmLabel.text = "No description available"
@@ -74,5 +78,16 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destination.selectSave = tableView.indexPathForSelectedRow!.row
             print("Row Selected \(tableView.indexPathForSelectedRow!.row)")
         }
+    }
+    
+    //navigation bar manipulation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

@@ -21,30 +21,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="© FWDNXT 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eHC-HI-J6l">
-                                <rect key="frame" x="20.5" y="625.5" width="335" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AIperLife" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="mEY-ZL-B0l">
-                                <rect key="frame" x="25" y="456.5" width="335" height="43"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fwdnxt-logo.jpg" highlightedImage="fwdnxt-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-TJ-aH8">
-                                <rect key="frame" x="67" y="100" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_cube" highlightedImage="2FB28BDC-E298-4356-9C72-AB5CFF68B05C" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-TJ-aH8">
+                                <rect key="frame" x="137" y="283.5" width="100" height="100"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" image="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="rPt-dT-ohL"/>
+                                    <constraint firstAttribute="height" constant="100" id="uhT-Pp-K6N"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.31078734993934631" green="0.74218451976776123" blue="0.67455476522445679" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="aQQ-TJ-aH8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="88q-5t-sCi"/>
+                            <constraint firstItem="aQQ-TJ-aH8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Lqu-VD-tU9"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,6 +46,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fwdnxt-logo.jpg" width="1391" height="1397"/>
+        <image name="2FB28BDC-E298-4356-9C72-AB5CFF68B05C" width="1391" height="1397">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKXHsxMzkxLCAxMzk3fdIVChYYWk5TLm9iamVjdHOhF4AEgAnSFQoa
+GKIbHIAFgAaACRAF0yAKISIjJFdOUy5iYXNlW05TLnJlbGF0aXZlgACACIAHXxB8ZmlsZTovLy9BcHBs
+aWNhdGlvbnMvWGNvZGUuYXBwL0NvbnRlbnRzL1BsdWdJbnMvSURFSW50ZXJmYWNlQnVpbGRlcktpdC5p
+ZGVwbHVnaW4vQ29udGVudHMvUmVzb3VyY2VzL0lCTWlzc2luZ0ltYWdlR2x5cGgudGlmZtInKCkqWiRj
+bGFzc25hbWVYJGNsYXNzZXNVTlNVUkyiKStYTlNPYmplY3TSJygtLldOU0FycmF5oi0r0zAxCjIzNFdO
+U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9InKDY3V05TQ29sb3KiNivSJyg5OldOU0ltYWdlojkr
+XxAPTlNLZXllZEFyY2hpdmVy0T0+VHJvb3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACC
+AIQAiQCLAI0AmgCfAKoArACuALAAtQC4ALoAvAC+AMAAxwDPANsA3QDfAOEBYAFlAXABeQF/AYIBiwGQ
+AZgBmwGiAaoBtwG8Ab4BwAHFAc0B0AHVAd0B4AHyAfUB+gAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAA
+AAAAAAH8A
+</mutableData>
+        </image>
+        <image name="Logo_cube" width="512" height="512"/>
     </resources>
 </document>

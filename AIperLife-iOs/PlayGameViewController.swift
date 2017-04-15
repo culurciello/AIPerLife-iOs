@@ -17,7 +17,8 @@ import RealmSwift
 protocol IdentifyFrameDelegate: class {
     func captured(image: UIImage)
     func fps(time: Double)
-    func detection(info: String)
+    func detection(info: String, found: Bool, numItem: Int)
+//    func detection(info: String)
 }
 
 class IdentifyFrame: FrameExtractor {
@@ -36,8 +37,6 @@ class IdentifyFrame: FrameExtractor {
     var protos:[[Float]] = [ [],[],[],[],[], [],[],[],[],[], [],[],[],[],[], [],[],[],[],[] ] // 20 max for now... TODO: do not let it break if > 20 protos
     var embedding:[Float] = []
     
-    //TODO update the protoString with data in realm
-    //var protoString:[String] = ["1", "2", "3", "4", "5"]
     var protoString:[String] = []
     
     init(selectSave: Int) {
@@ -173,10 +172,11 @@ class IdentifyFrame: FrameExtractor {
             self.delegate?.fps(time: executionTime)
             
             if (min < max*threshold) {
-                //self.delegate?.detection(info: "Detected: " + self.protoString[best] + " Distance: \(min)")
-                self.delegate?.detection(info: self.protoString[best])
+                self.delegate?.detection(info: self.protoString[best], found: true, numItem: best)
+//                self.delegate?.detection(info: self.protoString[best])
             } else {
-                self.delegate?.detection(info: "")
+                self.delegate?.detection(info: "", found: false, numItem: 0)
+//                self.delegate?.detection(info: "")
             }
         }
     }
@@ -185,6 +185,7 @@ class IdentifyFrame: FrameExtractor {
 class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     
     var idFrame : IdentifyFrame!
+    var progressLauncher : ProgressLauncher!
 
     @IBOutlet var playImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
@@ -197,6 +198,8 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         
         idFrame = IdentifyFrame(selectSave: selectSave)
         idFrame.delegate = self
+        
+        progressLauncher = ProgressLauncher(selectSave: selectSave)
 
     }
     
@@ -206,10 +209,21 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     func fps(time: Double) {
         textLabel.text = "FPS: \(1/time)"
     }
-    func detection(info: String) {
+    func detection(info: String, found: Bool, numItem: Int) {
+//    func detection(info: String) {
         infoLabel.text = info
+        if found {
+            progressLauncher.updateProgress(item: numItem)
+        }
     }
     
+    
+    @IBAction func progressPressed(_ sender: Any) {
+        progressLauncher.showProgress()
+    }
+
+    
+
     override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -227,6 +241,9 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
                 playImageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
                 break
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
