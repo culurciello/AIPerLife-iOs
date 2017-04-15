@@ -21,6 +21,8 @@
 		86F1F47E1E6E0F2400DCCAB4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */; };
 		86F1F4821E6F632B00DCCAB4 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */; };
 		86F1F4861E714AC400DCCAB4 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F1F4851E714AC400DCCAB4 /* SaveData.swift */; };
+		A9B8D0391E95AE6B006A801D /* SaveDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8D0371E95AE6B006A801D /* SaveDataTableViewCell.swift */; };
+		A9B8D03A1E95AE6B006A801D /* SaveDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B8D0381E95AE6B006A801D /* SaveDataTableViewCell.xib */; };
 		C1159EB31E69E4D200ABF833 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1159EB21E69E4D200ABF833 /* Accelerate.framework */; };
 		C1159EB51E69E64C00ABF833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */; };
 		C1159EB61E69E64C00ABF833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FBFFEC1E57C668002EF598 /* ViewController.swift */; };
@@ -74,6 +76,8 @@
 		86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		86F1F4851E714AC400DCCAB4 /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		9B57AC93F5A9923F2B6080A2 /* Pods-AIperLife-iOs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIperLife-iOs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIperLife-iOs/Pods-AIperLife-iOs.debug.xcconfig"; sourceTree = "<group>"; };
+		A9B8D0371E95AE6B006A801D /* SaveDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveDataTableViewCell.swift; sourceTree = "<group>"; };
+		A9B8D0381E95AE6B006A801D /* SaveDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveDataTableViewCell.xib; sourceTree = "<group>"; };
 		C1159EB21E69E4D200ABF833 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C1159EB41E69E57A00ABF833 /* thvector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = thvector.h; path = thnets/thvector.h; sourceTree = "<group>"; };
 		C1159EBB1E69E99E00ABF833 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				C1FBFFEA1E57C668002EF598 /* AppDelegate.swift */,
 				C1FBFFEC1E57C668002EF598 /* ViewController.swift */,
 				86F1F4851E714AC400DCCAB4 /* SaveData.swift */,
+				A9B8D0371E95AE6B006A801D /* SaveDataTableViewCell.swift */,
+				A9B8D0381E95AE6B006A801D /* SaveDataTableViewCell.xib */,
 				C1FBFFEE1E57C668002EF598 /* Main.storyboard */,
 				86F1F4811E6F632B00DCCAB4 /* LoadViewController.swift */,
 				86F1F47D1E6E0F2400DCCAB4 /* MenuViewController.swift */,
@@ -268,7 +274,7 @@
 				TargetAttributes = {
 					C1FBFFE61E57C668002EF598 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6M8TQ93XUP;
+						DevelopmentTeam = R7A9796S7S;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -303,6 +309,7 @@
 				C1159EBC1E69E99E00ABF833 /* Images.xcassets in Resources */,
 				86F1F47A1E6BBE8000DCCAB4 /* README.rtf in Resources */,
 				C1FBFFF51E57C668002EF598 /* LaunchScreen.storyboard in Resources */,
+				A9B8D03A1E95AE6B006A801D /* SaveDataTableViewCell.xib in Resources */,
 				C1FBFFF01E57C668002EF598 /* Main.storyboard in Resources */,
 				86F1F4781E6BBE7F00DCCAB4 /* classes.t7 in Resources */,
 				86F1F4791E6BBE8000DCCAB4 /* model.net in Resources */,
@@ -374,6 +381,7 @@
 				C12BF18E1E69E46E00D24035 /* CAddTable.c in Sources */,
 				C12BF1AE1E69E48500D24035 /* thload.c in Sources */,
 				8618949D1E720B0000A8E560 /* PlayGameViewController.swift in Sources */,
+				A9B8D0391E95AE6B006A801D /* SaveDataTableViewCell.swift in Sources */,
 				C12BF1901E69E46E00D24035 /* ConcatTable.c in Sources */,
 				C12BF18F1E69E46E00D24035 /* Concat.c in Sources */,
 				C12BF1921E69E46E00D24035 /* JoinTable.c in Sources */,
@@ -525,11 +533,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6M8TQ93XUP;
+				DEVELOPMENT_TEAM = R7A9796S7S;
 				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
+				PRODUCT_BUNDLE_IDENTIFIER = "AIperLife-iOs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "thnets/thnets-camera-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -544,11 +552,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 6M8TQ93XUP;
+				DEVELOPMENT_TEAM = R7A9796S7S;
 				INFOPLIST_FILE = "AIperLife-iOs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fwdnxt.AIperLife-iOs";
+				PRODUCT_BUNDLE_IDENTIFIER = "AIperLife-iOs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "thnets/thnets-camera-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

@@ -14,6 +14,11 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
     let realm = try! Realm()
     let defaults = UserDefaults.standard
     
+    let datatitle = ["1","2","3","4","5"]
+    let dataDate = ["a","b","c","d","e"]
+    let dataNum = ["11","22","33","44","55"]
+    let dataDsc = ["aa","bb","cc","dd","ee"]
+    
     @IBOutlet var tableView: UITableView!
     
     @IBAction func deleteAllPressed(_ sender: Any) {
@@ -54,14 +59,31 @@ class ManageViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return realm.objects(SaveData.self).count
+//        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = Bundle.main.loadNibNamed("SaveDataTableViewCell", owner: self, options: nil)?.first as! SaveDataTableViewCell
+        
         cell.selectionStyle = .none
+        let dateF = DateFormatter()
+        dateF.dateFormat = "MM/dd/yyyy"
         let resultArray = realm.objects(SaveData.self)
-        cell.textLabel!.text = resultArray[indexPath.row].title
+        cell.titleLabel?.text = resultArray[indexPath.row].title
+        cell.dateCreatedLabel?.text = dateF.string(for: resultArray[indexPath.row].created as Date)
+        cell.dateCreatedLabel.sizeToFit()
+        cell.numObjectsLabel?.text = "\(resultArray[indexPath.row].numObj)"
+        cell.descriptionLabel?.text = resultArray[indexPath.row].desc
+//        cell.titleLabel?.text = datatitle[indexPath.row]
+//        cell.dateCreatedLabel?.text = dataDate[indexPath.row]
+//        cell.numObjectsLabel?.text = dataNum[indexPath.row]
+//        cell.descriptionLabel?.text = dataDsc[indexPath.row]
+
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 116
     }
     
     //Swipe to delete individual entry
