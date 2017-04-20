@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     @IBOutlet var createButton: UIButton!
     @IBOutlet var loadButton: UIButton!
     
-    let loadAnim = LoadingAnimator()
+    //let loadAnim = LoadingAnimator()
     
     //Proceed to play game
     @IBAction func playPressed(_ sender: Any) {
@@ -38,13 +38,18 @@ class MenuViewController: UIViewController {
         let bgImageName = "Robot"
         let bgImage = UIImage(named: bgImageName)
         let bgImageView = UIImageView(image: bgImage)
-        
+        bgImageView.contentMode = .scaleAspectFit
         bgImageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
         view.addSubview(bgImageView)
+        
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: bgImageView)
+        view.addConstraintsWithFormat(format: "V:|[v0]|", views: bgImageView)
+        
         view.sendSubview(toBack: bgImageView)
         
         //Loading Animation
-        loadAnim.showAnimation()
+        //loadAnim.showAnimation()
         
         //Hide navigation bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)

@@ -12,9 +12,52 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let r : CGFloat = 74/255
+    let g : CGFloat = 189/255
+    let b : CGFloat = 172/255
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        self.window!.makeKeyAndVisible()
+        
+        let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nav = main.instantiateViewController(withIdentifier: "navigationController") 
+        self.window!.rootViewController = nav
+        
+        nav.view.layer.mask = CALayer()
+        nav.view.layer.mask?.contents = UIImage(named: "Logo_cube_white")!.cgImage
+        nav.view.layer.mask?.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        nav.view.layer.mask?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        nav.view.layer.mask?.position = CGPoint(x: nav.view.frame.width/2, y: nav.view.frame.height/2)
+        
+        let maskView = UIView(frame: nav.view.frame)
+        maskView.backgroundColor = UIColor.white
+        nav.view.addSubview(maskView)
+        nav.view.bringSubview(toFront: maskView)
+        
+        let loadAnimation = CAKeyframeAnimation(keyPath: "bounds")
+        loadAnimation.duration = 1.5
+        
+        let initial = NSValue(cgRect: (nav.view.layer.mask?.bounds)!)
+        let decrease = NSValue(cgRect: CGRect(x: 0, y: 0, width: 80, height: 80))
+        let increase = NSValue(cgRect: CGRect(x: 0, y: 0, width: 4000, height: 4000))
+        
+        loadAnimation.values = [initial, decrease, increase]
+        loadAnimation.keyTimes = [0, 0.3, 0.7]
+        loadAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)]
+        loadAnimation.isRemovedOnCompletion = false
+        loadAnimation.fillMode = kCAFillModeForwards
+        nav.view.layer.mask?.add(loadAnimation, forKey: "maskAnimation")
+        
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            maskView.alpha = 0
+            
+        }) { (true) in
+            maskView.removeFromSuperview()
+        }
+        
         return true
     }
 

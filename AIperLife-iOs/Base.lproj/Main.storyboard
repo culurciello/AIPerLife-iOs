@@ -519,10 +519,10 @@
             </objects>
             <point key="canvasLocation" x="652" y="-626.53673163418296"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--navigationController-->
         <scene sceneID="6tN-DJ-Dwd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rO6-x4-QMY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" title="navigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rO6-x4-QMY" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uWb-W2-f6e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
