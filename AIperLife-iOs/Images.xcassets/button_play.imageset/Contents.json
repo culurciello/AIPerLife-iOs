@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Button_Play_200x50.png",
+      "filename" : "PlayButton_faded.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Button_Play_400x100.png",
+      "filename" : "PlayButton_400x100.png",
       "scale" : "2x"
     },
     {
