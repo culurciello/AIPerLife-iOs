@@ -113,4 +113,48 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         progress[item].found = true
         self.collectionView.reloadData()
     }
+    
+    let itemView: UIView = {
+        let iv = UIView(frame: .zero)
+        iv.backgroundColor = UIColor.white
+        return iv
+    }()
+    
+    func addProgress(curritem: Int, pastitem: Int) {
+        if pastitem == curritem {
+            return
+        }
+        
+        if let window = UIApplication.shared.keyWindow {
+            maskView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            maskView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(storeItem)))
+            maskView.frame = window.frame
+            maskView.alpha = 0
+            
+            window.addSubview(maskView)
+            window.addSubview(itemView)
+            
+            let height: CGFloat = 100
+            let offset: CGFloat = 40
+            let y = window.frame.height - height - offset
+            
+            itemView.frame = CGRect(x: 0, y: window.frame.height/2, width: window.frame.width, height: height)
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+                self.maskView.alpha = 1
+                self.itemView.frame = CGRect(x: 0, y: y, width: self.itemView.frame.width, height: self.itemView.frame.height)
+                print(self.progress[curritem].name)
+            }, completion: nil)
+            
+        }
+    }
+    func storeItem() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.maskView.alpha = 0
+            if let window = UIApplication.shared.keyWindow {
+                //disappear to top right
+                self.itemView.frame = CGRect(x: window.frame.width, y: 0, width: self.itemView.frame.width, height: self.itemView.frame.height)
+            }
+        })
+    }
 }

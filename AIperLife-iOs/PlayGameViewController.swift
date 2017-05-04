@@ -193,6 +193,8 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
     
     var selectSave = 0
     
+    var past = 100
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -214,6 +216,8 @@ class PlayGameViewController: UIViewController, IdentifyFrameDelegate {
         infoLabel.text = info
         if found {
             progressLauncher.updateProgress(item: numItem)
+            progressLauncher.addProgress(curritem:numItem, pastitem: past)
+            past = numItem
         }
     }
     
