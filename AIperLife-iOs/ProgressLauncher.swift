@@ -12,10 +12,12 @@ import RealmSwift
 class Progress: NSObject {
     var name: String
     var imageName: String
+    var found: Bool
     
     init(name: String, imageName: String) {
         self.name = name
         self.imageName = imageName
+        self.found = false
     }
 }
 
@@ -108,5 +110,7 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     func updateProgress(item: Int) {
         progress[item].imageName = "found"
+        progress[item].found = true
+        self.collectionView.reloadData()
     }
 }

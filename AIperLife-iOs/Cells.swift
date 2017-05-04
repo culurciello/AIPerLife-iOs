@@ -27,7 +27,11 @@ class ProgressCell: BaseCell {
     
     var setting: Progress? {
         didSet {
-            nameLabel.text = setting?.name
+            if setting?.found == true {
+                nameLabel.text = setting?.name
+            } else {
+                nameLabel.text = "Unknown"
+            }
             if let imageName = setting?.imageName {
                 iconImageView.image = UIImage(named: imageName)
             }
