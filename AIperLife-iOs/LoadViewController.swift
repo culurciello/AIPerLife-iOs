@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import RealmSwift
 
 class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -16,7 +17,13 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var confirmLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     
+    let mainColor = UIColor(red: 74/255, green: 189/255, blue: 172/255, alpha: 1)
+    let verColor = UIColor(red: 252/255, green: 74/255, blue: 26/255, alpha: 1)
+    let sunColor = UIColor(red: 247/255, green: 183/255, blue: 51/255, alpha: 1)
+    let textColor = UIColor(red: 222/255, green: 220/255, blue: 227/255, alpha: 1)
+    
     let realm = try! Realm()
+    var items = [String]()
     
     @IBAction func LoadButton(_ sender: Any) {
         print("Loading Game")
@@ -34,8 +41,7 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        // TODO: Maybe Revamp the confirm view later?
         confirmView.alpha = 0
         titleLabel.text = "No title"
         confirmLabel.text = "No description available"
@@ -43,11 +49,41 @@ class LoadViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
+        self.tableView.backgroundColor = mainColor
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        //Table insertion animation
+        var indexPaths = [IndexPath]()
+        
+        for i in 0...realm.objects(SaveData.self).count-1 {
+            let resultArray = realm.objects(SaveData.self)
+            items.append(resultArray[i].title!)
+            indexPaths.append(IndexPath(row: i, section: 0))
+            
+            tableView.beginUpdates()
+            if (i%2 == 0) {
+                tableView.insertRows(at: [IndexPath(row: i, section: 0)], with: .left)
+            } else {
+                tableView.insertRows(at: [IndexPath(row: i, section: 0)], with: .right)
+
+            }
+            tableView.endUpdates()
+        }
+    }
+
+    //Tableview cell styles
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = sunColor
+        } else {
+            cell.backgroundColor = verColor
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return realm.objects(SaveData.self).count
+//        return realm.objects(SaveData.self).count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

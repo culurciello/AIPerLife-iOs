@@ -12,14 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let r : CGFloat = 74/255
-    let g : CGFloat = 189/255
-    let b : CGFloat = 172/255
+    
+    let mainColor = UIColor(red: 74/255, green: 189/255, blue: 172/255, alpha: 1)
+    let verColor = UIColor(red: 252/255, green: 74/255, blue: 26/255, alpha: 1)
+    let sunColor = UIColor(red: 247/255, green: 183/255, blue: 51/255, alpha: 1)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        self.window!.backgroundColor = mainColor
         self.window!.makeKeyAndVisible()
         
         let main: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -57,6 +58,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }) { (true) in
             maskView.removeFromSuperview()
         }
+        
+        //Set up Navigation bar
+        UINavigationBar.appearance().barTintColor = mainColor
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = verColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: verColor]
         
         return true
     }
