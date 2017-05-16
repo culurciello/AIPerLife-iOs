@@ -28,19 +28,63 @@ class LearnFrame: FrameExtractor {
 }
 
 class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDelegate {
-
+    
     var lFrame : LearnFrame!
     var item = 0
     let realm = try! Realm()
     
-    //create a test realm object
-    let testingData = SaveData(title: "Unnamed Save")
+    //Setup Input Container
+    let inputsView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.layer.cornerRadius = 6
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    //Setup Buttons
+    lazy var confirmSaveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 80/255, green: 200/255, blue: 180/255, alpha: 1)
+        button.setTitle("Save", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleSave), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    //Setup contents of input container [title text field, seperator, desc test field]
+    let titleTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Title for Save"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    let seperatorView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 220/225, green: 220/225, blue: 220/225, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let descTextField: UITextView = {
+        let tf = UITextView()
+        tf.isEditable = true
+        tf.text = "Description / First hint"
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    
+    //create realm object
+    let currData = SaveData(title: "Unnamed Save")
     
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var titleField: UITextField!
-    @IBOutlet weak var descField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
+    
+    let summaryView = UIView()
     
     @IBAction func learnPressed(_ sender: Any) {
         let defaults = UserDefaults.standard
@@ -59,6 +103,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
             //cancel text input and cancel learning
             print("Cancelled !!")
         }
+        
         //Create Alert
         let alert = UIAlertController(title: "Enter Hint", message: "", preferredStyle: .alert)
         alert.addTextField(configurationHandler: configurationTextField)
@@ -75,8 +120,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
                 //write object into realm
                 self.realm.add(myObj)
                 //update meta data
-                self.testingData.objList.append(myObj)
-                self.testingData.numObj = self.testingData.objList.count
+                self.currData.objList.append(myObj)
+                self.currData.numObj = self.currData.objList.count
             }
             self.item += 1
             //enable saving after 2 objects learned
@@ -91,17 +136,31 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         lFrame = LearnFrame()
         lFrame.delegate = self
-        self.titleField.delegate = self
-        self.descField.delegate = self
+        
+        self.titleTextField.delegate = self
         
         saveButton.isEnabled = false
-        summaryView.alpha = 0
-        titleField.placeholder = "Enter Title..."
-        descField.placeholder = "Enter brief description for your save..."
+        
+        //Manage Summary View
+        //TODO figure out a way to use "view" instead of window
+        if let window = UIApplication.shared.keyWindow {
+            window.addSubview(summaryView)
+            summaryView.frame = view.frame
+            summaryView.alpha = 0
+            summaryView.backgroundColor = UIColor(red: 74/255, green: 189/255, blue: 172/255, alpha: 1)
+            
+            summaryView.addSubview(inputsView)
+            summaryView.addSubview(confirmSaveButton)
+            
+            
+            setupInputsView()
+            setupConfirmSaveButton()
+        }
+        
     }
     
     func captured(image: UIImage) {
@@ -111,17 +170,64 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
     @IBAction func savePressed(_ sender: Any) {
         //setup save summary
         summaryView.alpha = 1
-        
     }
-    @IBAction func confirmPressed(_ sender: Any) {
+    
+    func handleSave() {
         //save to realm
-        self.testingData.title = titleField.text
-        self.testingData.desc = descField.text
+        self.currData.title = titleTextField.text
+        self.currData.desc = descTextField.text
         try! self.realm.write {
-            realm.add(testingData, update: true)
+            realm.add(currData, update: true)
         }
+        
+        //hide keyboards
+        descTextField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
+        
+        //TODO make sure we don't need to use this
+        summaryView.alpha = 0
+        
         //return to main menu
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func setupInputsView() {
+        //inputs view box constraints
+        inputsView.centerXAnchor.constraint(equalTo: summaryView.centerXAnchor).isActive = true
+        inputsView.centerYAnchor.constraint(equalTo: summaryView.centerYAnchor, constant: -100).isActive = true
+        inputsView.widthAnchor.constraint(equalTo: summaryView.widthAnchor, constant: -32).isActive = true
+        inputsView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        inputsView.addSubview(titleTextField)
+        inputsView.addSubview(seperatorView)
+        inputsView.addSubview(descTextField)
+        
+        //Title Text Field constraints
+        titleTextField.leftAnchor.constraint(equalTo: inputsView.leftAnchor, constant: 8).isActive = true
+        titleTextField.topAnchor.constraint(equalTo: inputsView.topAnchor).isActive = true
+        titleTextField.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
+        titleTextField.heightAnchor.constraint(equalTo: inputsView.heightAnchor, multiplier: 1/3).isActive = true
+        
+        //Seperator Constraints
+        seperatorView.leftAnchor.constraint(equalTo: inputsView.leftAnchor).isActive = true
+        seperatorView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
+        seperatorView.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
+        seperatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
+        //Description Text Field Constraints
+        descTextField.leftAnchor.constraint(equalTo: inputsView.leftAnchor, constant: 8).isActive = true
+        descTextField.topAnchor.constraint(equalTo: seperatorView.bottomAnchor).isActive = true
+        descTextField.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
+        descTextField.heightAnchor.constraint(equalTo: inputsView.heightAnchor, multiplier: 2/3).isActive = true
+        
+    }
+    
+    func setupConfirmSaveButton() {
+        //button constraints
+        confirmSaveButton.centerXAnchor.constraint(equalTo: summaryView.centerXAnchor).isActive = true
+        confirmSaveButton.topAnchor.constraint(equalTo: inputsView.bottomAnchor, constant: 12).isActive = true
+        confirmSaveButton.widthAnchor.constraint(equalTo: inputsView.widthAnchor).isActive = true
+        confirmSaveButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     override func viewWillLayoutSubviews() {
@@ -141,6 +247,10 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
             imageView.transform = CGAffineTransform(rotationAngle: CGFloat.pi*2)
             break
         }
+        
+        if let window = UIApplication.shared.keyWindow {
+            self.summaryView.frame = window.frame
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,14 +264,9 @@ class CreateViewController: UIViewController, UITextFieldDelegate, LearnFrameDel
         self.lFrame.captureSession.stopRunning()
     }
     
-    //Hide keyboard when end editing and press return
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        titleField.resignFirstResponder()
-        descField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
         return true
     }
+
 }
