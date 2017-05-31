@@ -116,8 +116,16 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     
     let itemView: UIView = {
         let iv = UIView(frame: .zero)
-        iv.backgroundColor = UIColor.white
+        iv.backgroundColor = UIColor(patternImage: UIImage(named: "Border")!)
         return iv
+    }()
+    
+    
+    let hintLabel: UILabel = {
+        let hl = UILabel()
+        hl.textAlignment = .center
+        hl.translatesAutoresizingMaskIntoConstraints = false
+        return hl
     }()
     
     func addProgress(curritem: Int, pastitem: Int) {
@@ -134,20 +142,34 @@ class ProgressLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             window.addSubview(maskView)
             window.addSubview(itemView)
             
-            let height: CGFloat = 100
-            let offset: CGFloat = 40
-            let y = window.frame.height - height - offset
+            hintLabel.text = self.progress[curritem].name
             
-            itemView.frame = CGRect(x: 0, y: window.frame.height/2, width: window.frame.width, height: height)
+            itemView.addSubview(hintLabel)
+            hintLabel.centerXAnchor.constraint(equalTo: itemView.centerXAnchor).isActive = true
+            hintLabel.centerYAnchor.constraint(equalTo: itemView.centerYAnchor).isActive = true
+            hintLabel.widthAnchor.constraint(equalTo: itemView.widthAnchor, constant: 8).isActive = true
+            hintLabel.heightAnchor.constraint(equalTo: itemView.heightAnchor, constant: 4).isActive = true
+            
+            let itemImage = UIImage(named: "Border")
+            let height = itemImage?.size.height
+            let width = itemImage?.size.width
+            
+            let offset: CGFloat = 40
+            let y = window.frame.height - height! - offset
+            let x = (window.frame.width-width!)/2
+            
+            itemView.frame = CGRect(x: x, y: window.frame.height/2, width: width!, height: height!)
+            
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
                 self.maskView.alpha = 1
-                self.itemView.frame = CGRect(x: 0, y: y, width: self.itemView.frame.width, height: self.itemView.frame.height)
+                self.itemView.frame = CGRect(x: x, y: y, width: self.itemView.frame.width, height: self.itemView.frame.height)
                 print(self.progress[curritem].name)
             }, completion: nil)
             
         }
     }
+    
     func storeItem() {
         UIView.animate(withDuration: 0.3, animations: {
             self.maskView.alpha = 0
