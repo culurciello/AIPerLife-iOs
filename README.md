@@ -7,6 +7,10 @@ Augmented reality social game
 
 `sudo gem install cocoapods`
 
+then run:
+
+`pod instsll`
+
 
 ## demo
 
